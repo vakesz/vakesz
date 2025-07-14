@@ -98,7 +98,7 @@ theme = "PaperMod"
   editPost.appendFilePath = true
   
   # Analytics
-  # analytics.google.SiteVerificationTag = "your-google-site-verification"
+  analytics.google.SiteVerificationTag = "wmIgcRkyiMpn8yLYNlSWr_CyKBP82dHZ0-edEILNaBY"
   # Enable Google Analytics 4
   # googleAnalytics = "G-XXXXXXXXXX"
   # analytics.bing.SiteVerificationTag = "your-bing-verification"

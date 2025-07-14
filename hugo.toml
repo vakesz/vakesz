@@ -6,7 +6,7 @@ theme = "PaperMod"
 [params]
   # Site Info
   description = "Personal blog of vakesz - Software Engineer sharing insights on backend development, C/Python programming, tech and personal adventures"
-  author = "Gabor Pinkova"
+  author = "vakesz"
   keywords = ["software engineering", "backend development", "C programming", "Python", "tech blog", "vakesz"]
   # Theme Settings
   defaultTheme = "auto" # auto, light, dark
@@ -41,7 +41,7 @@ theme = "PaperMod"
   profileMode.enabled = true
   profileMode.title = "vakesz"
   profileMode.subtitle = "Software Engineer | Backend Developer | Tech Tinkerer"
-  profileMode.imageUrl = "img/avatar.webp"
+  profileMode.imageUrl = "me.jpg"
   profileMode.imageWidth = 120
   profileMode.imageHeight = 120
   profileMode.imageTitle = "Gabor Pinkova"

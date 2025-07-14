@@ -4,6 +4,10 @@ title = "vakesz.com"
 theme = "PaperMod"
 
 [params]
+  # Site Info
+  description = "Personal blog of vakesz - Software Engineer sharing insights on backend development, C/Python programming, tech and personal adventures"
+  author = "Gabor Pinkova"
+  keywords = ["software engineering", "backend development", "C programming", "Python", "tech blog", "vakesz"]
   # Theme Settings
   defaultTheme = "auto" # auto, light, dark
   disableThemeToggle = false
@@ -20,6 +24,15 @@ theme = "PaperMod"
   ShowRssButtonInSectionTermList = true
   ShowAllPagesInArchive = false
   
+  # Search Settings
+  fuseOpts.isCaseSensitive = false
+  fuseOpts.shouldSort = true
+  fuseOpts.location = 0
+  fuseOpts.distance = 1000
+  fuseOpts.threshold = 0.4
+  fuseOpts.minMatchCharLength = 0
+  fuseOpts.keys = ["title", "permalink", "summary", "content"]
+  
   # Home Page Settings
   homeInfoParams.Title = "Welcome to My Blog"
   homeInfoParams.Content = "Description of your blog"
@@ -27,27 +40,28 @@ theme = "PaperMod"
   # Profile Mode (uncomment to enable)
   profileMode.enabled = true
   profileMode.title = "vakesz"
-  profileMode.subtitle = "Gabor Pinkova"
+  profileMode.subtitle = "Software Engineer | Backend Developer | Tech Tinkerer"
   profileMode.imageUrl = "img/avatar.webp"
   profileMode.imageWidth = 120
   profileMode.imageHeight = 120
-  profileMode.imageTitle = "me"
+  profileMode.imageTitle = "Gabor Pinkova"
   profileMode.buttons = [
     {name = "Posts", url = "/posts"},
-    {name = "About", url = "/about"}
+    {name = "About", url = "/about"},
+    {name = "Search", url = "/search"}
   ]
   
   # Footer Settings
-  # footer.text = "Custom footer text"
-  # footer.hideCopyright = false
+  footer.text = "© 2025 - vakesz.com"
+  footer.hideCopyright = true
   
   # Assets (favicons, etc.)
-  # assets.favicon = "favicon.ico"
-  # assets.favicon16x16 = "favicon-16x16.png"
-  # assets.favicon32x32 = "favicon-32x32.png"
-  # assets.apple_touch_icon = "apple-touch-icon.png"
-  # assets.safari_pinned_tab = "safari-pinned-tab.svg"
-  # assets.theme_color = "#2e2e33"
+  assets.favicon = "favicon.ico"
+  assets.favicon16x16 = "favicon-16x16.png"
+  assets.favicon32x32 = "favicon-32x32.png"
+  assets.apple_touch_icon = "apple-touch-icon.png"
+  assets.safari_pinned_tab = "safari-pinned-tab.svg"
+  assets.theme_color = "#2e2e33"
   # assets.msapplication_TileColor = "#2e2e33"
   
   # Social Icons - Add your social media links
@@ -85,6 +99,8 @@ theme = "PaperMod"
   
   # Analytics
   # analytics.google.SiteVerificationTag = "your-google-site-verification"
+  # Enable Google Analytics 4
+  # googleAnalytics = "G-XXXXXXXXXX"
   # analytics.bing.SiteVerificationTag = "your-bing-verification"
   # analytics.yandex.SiteVerificationTag = "your-yandex-verification"
   # analytics.naver.SiteVerificationTag = "your-naver-verification"
@@ -101,3 +117,19 @@ theme = "PaperMod"
     name       = "About"
     url        = "/about/"
     weight     = 20
+
+    [[menu.main]]
+    identifier = "search"
+    name       = "Search"
+    url        = "/search/"
+    weight     = 30
+
+    [[menu.main]]
+    identifier = "tags"
+    name       = "Tags"
+    url        = "/tags/"
+    weight     = 40
+
+# Enable search functionality
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

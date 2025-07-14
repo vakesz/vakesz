@@ -2,8 +2,12 @@
 title: "Who's vakesz"
 date: 2022-12-10T16:11:30+02:00
 draft: false
-tags: ["vakesz", "introduction"]
+tags: ["vakesz", "introduction", "personal"]
 description: "A brief introduction to who I am, my journey, and what I do."
+cover:
+    image: "img/pc2.webp"
+    alt: "One of my first PCs from the 90s"
+    caption: "One of my first computers - where it all began"
 ---
 
 As you might already know from the [About Me](/about) page, my name is Gabor Pinkova. These days, I work at Sigma Technology, but it’s been quite a journey to get here. My fascination with technology started young—growing up, I was lucky (and unlucky) enough to have access to a bunch of old, barely-working computers with no internet connection. I still have some of those relics stored away, and you can see them in the pictures below.
@@ -11,8 +15,6 @@ As you might already know from the [About Me](/about) page, my name is Gabor Pin
 About the name “vakesz”: Honestly, I can’t remember exactly where it came from. I was sometimes called “vaksi” as a kid, and maybe I just morphed it into something that sounded cooler.
 
 When I was young, I started learning programming at school. Breaking down big ideas into smaller, solvable parts really hooked me. Later, I tried university, but it felt monotonous and uninspiring—I just wasn’t learning anything that excited me. After about a year and a half, I dropped out with zero regrets. At the time, I didn’t realize how that choice might come back to haunt me.
-
-![One of my first PCs from around the 90s.](img/pc2.webp)
 
 I spent around six years at Continental Automotive, learning a lot and developing as a professional. Looking back, one of the things I’m most grateful for during those years was having amazing mentors like Zoltan P. and Attila H. They had a big impact on both my technical skills and my approach to solving problems. Instead of simply giving me answers, they challenged me to think deeper and discover solutions on my own.
 

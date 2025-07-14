@@ -60,7 +60,7 @@ theme = "PaperMod"
   assets.favicon16x16 = "favicon-16x16.png"
   assets.favicon32x32 = "favicon-32x32.png"
   assets.apple_touch_icon = "apple-touch-icon.png"
-  assets.safari_pinned_tab = "safari-pinned-tab.svg"
+  # assets.safari_pinned_tab = "safari-pinned-tab.svg"
   assets.theme_color = "#2e2e33"
   # assets.msapplication_TileColor = "#2e2e33"
   
@@ -83,7 +83,7 @@ theme = "PaperMod"
   
   [[params.socialIcons]]
     name = "youtube"
-    url = "https://youtube.com/@vakeszable"
+    url = "https://youtube.com/@vakeszqe"
   
   [[params.socialIcons]]
     name = "rss"

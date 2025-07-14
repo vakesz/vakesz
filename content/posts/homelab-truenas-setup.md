@@ -5,9 +5,8 @@ draft: true
 tags: ["homelab", "truenas", "docker", "self-hosting"]
 description: "A complete guide to setting up a homelab environment using TrueNAS SCALE"
 cover:
-    image: "img/homelab_setup.webp"
+    image: "https://linuxhandbook.com/content/images/2021/11/homelab-setup.webp"
     alt: "Homelab setup"
-    caption: "My homelab setup"
 ---
 
 *This is a draft post - expand with your homelab experience*

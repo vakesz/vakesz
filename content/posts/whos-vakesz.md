@@ -5,7 +5,7 @@ draft: false
 tags: ["vakesz", "introduction", "personal"]
 description: "A brief introduction to who I am, my journey, and what I do."
 cover:
-    image: "img/pc2.webp"
+    image: "https://upload.wikimedia.org/wikipedia/en/e/eb/Windows_95_at_first_run.png"
     alt: "One of my first PCs from the 90s"
     caption: "One of my first computers - where it all began"
 ---

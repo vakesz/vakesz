@@ -6,7 +6,18 @@ description: "Why you'd want to go on a date with me"
 url: "/about/"
 type: "about"
 layout: "about"
+hidemeta: false
+comments: false
 disableShare: true
+disableHLJS: false
+hideSummary: false
+ShowReadingTime: false
+ShowBreadCrumbs: true
+ShowPostNavLinks: false
+ShowWordCount: false
+ShowRssButtonInSectionTermList: true
+UseHugoToc: false
+
 
 ---
 

@@ -1,0 +1,154 @@
+baseURL: "https://vakesz.com/"
+title: "vakesz.com"
+theme: "PaperMod"
+languageCode: "en-us"
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production # to enable google analytics, opengraph, twitter-cards and schema.
+  description: "Personal blog of vakesz - Software Engineer sharing insights on backend development, C/Python programming, tech and personal adventures"
+  author: "vakesz"
+  keywords:
+    - "software engineering"
+    - "backend development"
+    - "C programming"
+    - "Python"
+    - "tech blog"
+    - "vakesz"
+  
+  # Theme Settings
+  defaultTheme: "auto" # auto, light, dark
+  disableThemeToggle: false
+  
+  # Display Settings
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowWordCount: false
+  ShowCodeCopyButtons: true
+  ShowBreadCrumbs: true
+  ShowToc: false
+  ShowFullTextinRSS: true
+  ShowRssButtonInSectionTermList: true
+  ShowAllPagesInArchive: false
+  
+  # Search Settings
+  # for search
+  # https://fusejs.io/api/options.html
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    keys: ["title", "permalink", "summary", "content"]
+  
+  # Profile Mode
+  profileMode:
+    enabled: true
+    title: "vakesz"
+    subtitle: "Software Engineer | Backend Developer | Tech Tinkerer"
+    imageUrl: "me.jpg"
+    imageWidth: 120
+    imageHeight: 120
+    imageTitle: "vakesz"
+    buttons:
+      - name: "Posts"
+        url: "/posts"
+      - name: "About"
+        url: "/about"
+      - name: "Search"
+        url: "/search"
+  
+  # Footer Settings
+  footer:
+    text: "© vakesz.com"
+    hideCopyright: true
+  
+  # Assets (favicons, etc.)
+  assets:
+    favicon: "favicon.ico"
+    favicon16x16: "favicon-16x16.png"
+    favicon32x32: "favicon-32x32.png"
+    apple_touch_icon: "apple-touch-icon.png"
+    theme_color: "#2e2e33"
+  
+  # Social Icons
+  socialIcons:
+    - name: "github"
+      url: "https://github.com/vakesz"
+    - name: "twitter"
+      url: "https://twitter.com/vakeszqe"
+    - name: "linkedin"
+      url: "https://linkedin.com/in/gabor-pinkova"
+    - name: "instagram"
+      url: "https://instagram.com/vakeszqe"
+    - name: "youtube"
+      url: "https://youtube.com/@vakeszqe"
+    - name: "rss"
+      url: "/index.xml"
+  
+  # Share Buttons
+  ShareButtons:
+    - "linkedin"
+    - "twitter"
+    - "facebook"
+    - "reddit"
+  
+  # Edit Post Settings
+  editPost:
+    URL: "https://github.com/vakesz/vakesz-hugo/tree/main/content"
+    Text: "Suggest Changes"
+    appendFilePath: true
+  
+  # Analytics
+  analytics:
+    google:
+      SiteVerificationTag: "wmIgcRkyiMpn8yLYNlSWr_CyKBP82dHZ0-edEILNaBY"
+
+menu:
+  main:
+    - identifier: "posts"
+      name: "Posts"
+      url: "/posts/"
+      weight: 10
+    - identifier: "about"
+      name: "About"
+      url: "/about/"
+      weight: 20
+    - identifier: "search"
+      name: "Search"
+      url: "/search/"
+      weight: 30
+    - identifier: "tags"
+      name: "Tags"
+      url: "/tags/"
+      weight: 40
+
+# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+pygmentsUseClasses: true
+markup:
+  highlight:
+    noClasses: false
+    # anchorLineNos: true
+    # codeFences: true
+    # guessSyntax: true
+    # lineNos: true
+    # style: monokai
+
+# Enable search functionality
+outputs:
+  home:
+    - "HTML"
+    - "RSS"
+    - "JSON"

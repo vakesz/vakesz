@@ -4,6 +4,10 @@ date: 2025-05-15T12:00:00+02:00
 draft: false
 description: "Why you'd want to go on a date with me"
 url: "/about/"
+type: "about"
+layout: "about"
+disableShare: true
+
 ---
 
 ## {{< fa laptop-code >}} What I Do

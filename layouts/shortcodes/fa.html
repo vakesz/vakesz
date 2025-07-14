@@ -1,0 +1,3 @@
+{{- $icon := .Get 0 -}}
+{{- $style := .Get 1 | default "solid" -}}
+<i class="fa{{ if eq $style "regular" }}r{{ else if eq $style "brands" }}b{{ else }}s{{ end }} fa-{{$icon}}"></i>

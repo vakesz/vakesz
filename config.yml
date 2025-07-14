@@ -17,11 +17,17 @@ params:
   description: "Personal blog of vakesz - Software Engineer sharing insights on backend development, C/Python programming, tech and personal adventures"
   author: "vakesz"
   keywords:
+    - "personal blog"
+    - "software engineer"
+    - "backend developer"
+    - "C programming"
+    - "Python programming"
+    - "tech blog"
+    - "personal development"
     - "software engineering"
     - "backend development"
     - "C programming"
     - "Python"
-    - "tech blog"
     - "vakesz"
   
   # Theme Settings

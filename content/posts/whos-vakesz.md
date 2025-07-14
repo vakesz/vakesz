@@ -37,3 +37,5 @@ Outside of work, I’m passionate about mountain biking. I didn’t get to ride 
 When I’m not on the trails or in the server room, you’ll probably find me playing a few rounds of CS to unwind, or working on a coding side project just for fun (or sometimes just to see if I can break something in a new way). I’ve always enjoyed the process of figuring things out—whether it’s software, hardware, or even just trying to automate something ridiculous.
 
 Here’s a video from one of my favorite mountain biking spots—hope you enjoy it!
+
+{{< youtube CECk3XKRFRM >}}

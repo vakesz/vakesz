@@ -10,24 +10,25 @@ cover:
     caption: "Dacia Dokker - A common sight on the roads"
 ---
 
-A few weeks ago, during Continental’s family day, I had a discussion with my father about his Dacia, which has been experiencing issues with maintaining a stable RPM while driving. (We haven’t lived together for quite some time.) Since there were several presentations about how different systems in cars operate, this problem naturally came up.
+A few weeks ago, during Continental’s Family Day, I spoke with my father about the persistent idle-speed oscillation in his 2017 Dacia Dokker 1.6. We haven’t lived together for years, so this was the first time I had heard about the problem. Several of the day’s technical presentations dealt with engine-management systems, so diagnosing the fault quickly became our topic of choice.
 
-As I don’t have a complete understanding of how every system in a car works, I consulted some of my colleagues to see if they had any ideas on how to diagnose this behavior. Most suspected the throttle pedal, suggesting that it might not be sending a linear signal to the motor control unit, or that there might be a contact failure in its connection. Unfortunately, this turned out not to be the case. We took the car to a service center, where the pedal travel was measured to see if the values were being registered correctly. Everything seemed fine.
+Because I do not have an in-depth understanding of every automotive subsystem, I asked a couple of colleagues for guidance. The first hypothesis was a faulty throttle-by-wire pedal: perhaps the position sensor was sending a non-linear signal to the engine-control unit, or the connector had an intermittent contact. We ruled this out at a service centre after measuring the full pedal travel with the diagnostic tool—the ECU saw a perfectly linear 0–100 % sweep with no drop-outs.
 
-> He is the first owner of the car, and it has been malfunctioning ever since it was taken out of the shop. The car has also received many firmware updates for each related ECU, but this still hasn’t resolved the issue.
+> My father bought the car new, and the issue has been present since day one. All related ECUs have been reflashed with the latest firmware at least twice, yet the symptom persists.
 
 ![Dacia Dokker 2017 1.6](/img/Prague_2017_Dacia_Dokker_1.webp#center)
 
-Last weekend, I decided to stay at my dad’s place. After breakfast, it occurred to me that the car was right there, and we still hadn’t figured out the root cause of the issue. I went out to the garden, opened up the car, unplugged the pedal connectors, and checked them for any visible issues, but I couldn’t spot anything, so I just reseated them.
+Last weekend I stayed over at my parents’ house and finally had the car in front of me. After breakfast I headed to the driveway, pulled the trim panel, unplugged the accelerator-pedal connectors, inspected the pins, and reseated everything—no corrosion, no bent terminals.
 
-Then I noticed there was an ELM327 module in the car. Curious, I connected it to the car’s OBD port and started downloading some apps for it on my iPhone. After about an hour of trying, I concluded that these modules aren’t supported on iOS (except for WiFi variants). So, I grabbed an old Samsung tablet, downloaded the first app I saw on the Google Play Store, and voilà! It worked right away. That’s when the fun began. 🙂
+Buried behind the gear lever I found an old ELM327 dongle. I plugged it into the OBD-II port and—right then I remembered iOS does not support classic-Bluetooth OBD adapters. After half an hour of futile scanning with my iPhone, I dug out an ancient Samsung tablet, installed the first free app in the Play Store, and the connection came alive. Let the games begin. 🙂
 
-![ELM327 BT LE](/img/elm327.webp#center)
+![ELM327 Bluetooth](/img/elm327.webp#center)
 
-I tried to hold the pedal steady while monitoring the OBD outputs, but it was hard to focus on both at once. What struck me as odd was that the car would rev up even when I was holding the pedal at around 15–20%. So I asked my father to keep the pedal in a fixed position while I recorded a video of the diagnostic output.
+Holding the pedal steady while watching live data proved impossible, so I asked Dad to maintain roughly 15–20 % throttle while I recorded the PID read-outs. Even with the pedal locked, the engine randomly surged by 300–400 rpm for a second or two and then settled back.
 
 {{< youtube 8EJ7jPH_4eE >}}
 
-Right now, we only have a few suspicions. The most likely cause seems to be a very small vacuum leak, which isn’t setting any DTCs on the ECUs. If the car is drawing in more air due to a leak, the RPM will increase (more air = more fuel). We’ve also noticed that fuel consumption is a bit higher than it should be.
+At the moment our prime suspect is a minor intake-manifold vacuum leak—small enough not to trigger a diagnostic-trouble code but large enough to lean out the mixture and make the ECU compensate with additional fuel, resulting in a transient rise in revs. Fuel consumption is indeed about 0.5 L / 100 km higher than the factory figure.
 
-If we manage to confirm or disprove this theory, I’ll share my findings here. Until then, take care and have a nice day!
+We’ll have to wait until the next service interval to check the intake manifold and vacuum hoses. In the meantime, I’ll keep an eye on the fuel consumption and see if it changes.
+If you have any experience with this kind of issue or know of a common fault in the Dacia 1.6 engine, please let me know. I’d love to hear your thoughts or suggestions on how to proceed.

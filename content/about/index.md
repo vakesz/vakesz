@@ -9,16 +9,8 @@ layout: "about"
 hidemeta: false
 comments: false
 disableShare: true
-disableHLJS: false
-hideSummary: false
 ShowReadingTime: false
-ShowBreadCrumbs: true
-ShowPostNavLinks: false
 ShowWordCount: false
-ShowRssButtonInSectionTermList: true
-UseHugoToc: false
-
-
 ---
 
 ## {{< fa laptop-code >}} What I Do

@@ -1,0 +1,103 @@
+baseURL = "https://vakesz.com/"
+languageCode = "en-us"
+title = "vakesz.com"
+theme = "PaperMod"
+
+[params]
+  # Theme Settings
+  defaultTheme = "auto" # auto, light, dark
+  disableThemeToggle = false
+  
+  # Display Settings
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowPostNavLinks = true
+  ShowWordCount = false
+  ShowCodeCopyButtons = true
+  ShowBreadCrumbs = true
+  ShowToc = false
+  ShowFullTextinRSS = true
+  ShowRssButtonInSectionTermList = true
+  ShowAllPagesInArchive = false
+  
+  # Home Page Settings
+  homeInfoParams.Title = "Welcome to My Blog"
+  homeInfoParams.Content = "Description of your blog"
+  
+  # Profile Mode (uncomment to enable)
+  profileMode.enabled = true
+  profileMode.title = "vakesz"
+  profileMode.subtitle = "Gabor Pinkova"
+  profileMode.imageUrl = "img/avatar.webp"
+  profileMode.imageWidth = 120
+  profileMode.imageHeight = 120
+  profileMode.imageTitle = "me"
+  profileMode.buttons = [
+    {name = "Posts", url = "/posts"},
+    {name = "About", url = "/about"}
+  ]
+  
+  # Footer Settings
+  # footer.text = "Custom footer text"
+  # footer.hideCopyright = false
+  
+  # Assets (favicons, etc.)
+  # assets.favicon = "favicon.ico"
+  # assets.favicon16x16 = "favicon-16x16.png"
+  # assets.favicon32x32 = "favicon-32x32.png"
+  # assets.apple_touch_icon = "apple-touch-icon.png"
+  # assets.safari_pinned_tab = "safari-pinned-tab.svg"
+  # assets.theme_color = "#2e2e33"
+  # assets.msapplication_TileColor = "#2e2e33"
+  
+  # Social Icons - Add your social media links
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/vakesz"
+  
+  [[params.socialIcons]]
+    name = "twitter"
+    url = "https://twitter.com/vakeszqe"
+  
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://linkedin.com/in/gabor-pinkova"
+  
+  [[params.socialIcons]]
+    name = "instagram"
+    url = "https://instagram.com/vakeszqe"
+  
+  [[params.socialIcons]]
+    name = "youtube"
+    url = "https://youtube.com/@vakeszable"
+  
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
+  
+  # Share Buttons (customize which ones to show)
+  ShareButtons = ["linkedin", "twitter", "facebook", "reddit"]
+  
+  # Edit Post Settings
+  editPost.URL = "https://github.com/vakesz/vakesz-hugo/tree/main/content"
+  editPost.Text = "Suggest Changes"
+  editPost.appendFilePath = true
+  
+  # Analytics
+  # analytics.google.SiteVerificationTag = "your-google-site-verification"
+  # analytics.bing.SiteVerificationTag = "your-bing-verification"
+  # analytics.yandex.SiteVerificationTag = "your-yandex-verification"
+  # analytics.naver.SiteVerificationTag = "your-naver-verification"
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name       = "Posts"
+    url        = "/posts/"
+    weight     = 10
+
+    [[menu.main]]
+    identifier = "about"
+    name       = "About"
+    url        = "/about/"
+    weight     = 20

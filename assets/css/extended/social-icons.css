@@ -1,0 +1,88 @@
+/* Social Icons Hover Effects */
+.social-icons a {
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.social-icons a:hover {
+    transform: translateY(-2px);
+}
+
+/* GitHub */
+.social-icons a[href*="github.com"]:hover {
+    color: #58a6ff;
+}
+
+/* Twitter/X */
+.social-icons a[href*="twitter.com"]:hover,
+.social-icons a[href*="x.com"]:hover {
+    color: #1da1f2;
+}
+
+/* LinkedIn */
+.social-icons a[href*="linkedin.com"]:hover {
+    color: #0077b5;
+}
+
+/* Instagram */
+.social-icons a[href*="instagram.com"]:hover {
+    color: #e1306c;
+}
+
+/* YouTube */
+.social-icons a[href*="youtube.com"]:hover {
+    color: #ff0000;
+}
+
+/* RSS */
+.social-icons a[href*="index.xml"]:hover,
+.social-icons a[href*="rss"]:hover,
+.social-icons a[href*="feed"]:hover {
+    color: #ffa500;
+}
+
+/* Discord */
+.social-icons a[href*="discord.com"]:hover {
+    color: #7289da;
+}
+
+/* Telegram */
+.social-icons a[href*="telegram.me"]:hover,
+.social-icons a[href*="t.me"]:hover {
+    color: #0088cc;
+}
+
+/* Facebook */
+.social-icons a[href*="facebook.com"]:hover {
+    color: #1877f2;
+}
+
+/* Mastodon */
+.social-icons a[href*="mastodon"]:hover {
+    color: #6364ff;
+}
+
+/* Reddit */
+.social-icons a[href*="reddit.com"]:hover {
+    color: #ff4500;
+}
+
+/* Twitch */
+.social-icons a[href*="twitch.tv"]:hover {
+    color: #9146ff;
+}
+
+/* TikTok */
+.social-icons a[href*="tiktok.com"]:hover {
+    color: #ff0050;
+}
+
+/* Spotify */
+.social-icons a[href*="spotify.com"]:hover {
+    color: #1ed760;
+}
+
+/* Email */
+.social-icons a[href^="mailto:"]:hover {
+    color: #ea4335;
+}

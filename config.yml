@@ -123,6 +123,10 @@ params:
     google:
       SiteVerificationTag: "wmIgcRkyiMpn8yLYNlSWr_CyKBP82dHZ0-edEILNaBY"
 
+services:
+  googleAnalytics:
+    id: G-DC5V6CFZ76
+
 menu:
   main:
     - identifier: "posts"

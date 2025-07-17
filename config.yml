@@ -65,7 +65,7 @@ params:
     enabled: true
     title: "vakesz"
     subtitle: "Software Engineer | Backend Developer | Tech Tinkerer"
-    imageUrl: "me.jpg"
+    imageUrl: "img/me.jpg"
     imageWidth: 120
     imageHeight: 120
     imageTitle: "vakesz"

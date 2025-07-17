@@ -5,7 +5,7 @@ draft: false
 tags: ["automotive", "hacking", "know-how", "CAN", "CAN-FD", "CAN-XL", "FlexRay", "Ethernet", "LIN", "SOME/IP", "DoIP"]
 description: "A dive into automotive networks, protocols, and how to get started with automotive hacking."
 cover:
-    image: "img/hacking_cover.webp"
+    image: "/img/hacking_cover.webp"
     alt: "Automotive Hacking"
     caption: "Exploring the world of automotive networks and hacking"
 ---
@@ -28,7 +28,7 @@ I’ve been a regular listener of the [Hack és Lángos Podcast](https://hackesl
 
 > There are many other protocols used in the automotive field, but these are the ones I’m most familiar with and have seen in use. Of course, there’s also LIN and CAN-FD, but I’d just like to provide a starting point for you to decide if you’d like to dig deeper.
 
-![Automotive network layers and typical data rates](img/network.webp#center)
+![Automotive network layers and typical data rates](/img/network.webp#center)
 
 ---
 

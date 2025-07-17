@@ -16,7 +16,7 @@ About the name “vakesz”: Honestly, I can’t remember exactly where it came 
 
 When I was young, I started learning programming at school. Breaking down big ideas into smaller, solvable parts really hooked me. Later, I tried university, but it felt monotonous and uninspiring - I just wasn’t learning anything that excited me. After about a year and a half, I dropped out with zero regrets. At the time, I didn’t realize how that choice might come back to haunt me.
 
-![One of my first PCs from around the 90s.](img/pc2.webp#center)
+![One of my first PCs from around the 90s.](/img/pc2.webp#center)
 
 I spent around six years at Continental Automotive, learning a lot and developing as a professional. Looking back, one of the things I’m most grateful for during those years was having amazing mentors like Zoltan P. and Attila H. They had a big impact on both my technical skills and my approach to solving problems. Instead of simply giving me answers, they challenged me to think deeper and discover solutions on my own.
 
@@ -26,7 +26,7 @@ But as time went on, especially towards the end of my stay, I noticed my motivat
 
 Transitioning to Sigma Technology wasn’t easy at first - I found it tough to break out of old habits and ways of thinking. But I can gladly say that the difference in environment has been huge. The culture here is much more friendly and welcoming, and it honestly feels like people are here to help each other rather than just put up roadblocks. That support and openness have made it a lot easier to rediscover my motivation, and working on exciting telecommunications and AI projects has only added to that renewed energy.
 
-![Camo-wrapped car](img/camo_car.webp#center)
+![Camo-wrapped car](/img/camo_car.webp#center)
 
 Why did I say that leaving university might come back to bite me? At Continental, my official title was SW Technician - even though I did engineering work - because HR required a degree for the Engineer title. This lack of a diploma made things difficult and often frustrating, especially when recruiters would reach out with engineering opportunities based on my experience, but official policies held me back from advancement.
 

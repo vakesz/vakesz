@@ -5,7 +5,7 @@ draft: false
 tags: ["career", "automotive", "software-engineering", "mentorship", "sigma-technology", "personal-growth", "reflections"]
 description: "Reflections on my journey from automotive software engineering to my current role"
 cover:
-    image: "img/budapest_from_roof.webp"
+    image: "/img/budapest_from_roof.webp"
     alt: "A view of Budapest from the rooftop of my workplace"
     caption: "A view of Budapest from the rooftop of my workplace"
 ---
@@ -13,8 +13,6 @@ cover:
 ## Introduction
 
 I've mostly worked in places unrelated to software engineering. Without a degree, I often felt I had no way to prove myself. Then one day I met someone who changed everything: Roland B., a senior engineer at Continental at the time. He saw potential in me - partly motivated by the referral bonus he’d get if I was hired - but more importantly, he took the time to share knowledge and guide me through the complexities of automotive software development. His mentorship was invaluable and opened doors I never imagined. It took me a while to grasp the full impact of his support, but it was a true turning point in my career. Looking back, it's still surprising that we met by chance while cycling with friends. Roland was an experienced and talented rider as well - and that our conversations ranged from bikes to my career path.
-
-![Continental in Frankfurt](img/continental_frankfurt.webp#center)
 
 ## The Continental Years
 
@@ -27,6 +25,8 @@ After my first year, I felt more confident and started handling tasks independen
 Several years later, I was fully independent and more vocal in meetings, sharing ideas and feedback. I started mentoring new team members, though I struggled to balance guiding them with letting them learn independently. I also took on generic system development - a role different from my previous work. It offered more freedom and less oversight, which helped me develop skills in managing my time, prioritizing tasks, and communicating effectively. I met many competent new people, and colleagues were often surprised by how well-connected I was internationally. If there was an issue on a customer project, I could usually reach out to a system developer abroad to get a fresh perspective. This sense of community and mutual support was one of the best aspects of working at Continental.
 
 I built a good reputation and contributed meaningfully to projects, learning a lot about automotive software development and the industry. I believe I made a real impact and helped many colleagues along the way.
+
+![Continental in Frankfurt](/img/continental_frankfurt.webp#center)
 
 ### The Shift in Motivation
 
@@ -52,7 +52,7 @@ If I recall correctly, the first round was a casual chat with a recruiter where 
 
 That final interview made me much more anxious, and unfortunately, it didn’t go as well as I’d hoped. Many of the questions focused on Linux and C++ topics I wasn’t prepared for, and I struggled to provide answers. I felt disappointed, but the recruiter reassured me that even if I didn’t pass this round, they still wanted to offer me a position, on a different team. That was a relief, but I was also a little uncertain about what this would mean for my future at Sigma.
 
-![Outside the Sigma Office](img/sigma_outside.webp#center)
+![Outside the Sigma Office](/img/sigma_outside.webp#center)
 
 ## Current Reflections
 

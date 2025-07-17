@@ -5,7 +5,7 @@ draft: false
 tags: ["Dacia", "RPM", "anomaly", "automotive"]
 description: "Exploring the RPM rampup anomaly in Dacia vehicles and its implications."
 cover:
-    image: "img/dokker_cover.webp"
+    image: "/img/dokker_cover.webp"
     alt: "Dacia Dokker"
     caption: "Dacia Dokker - A common sight on the roads"
 ---
@@ -16,13 +16,13 @@ Because I do not have an in-depth understanding of every automotive subsystem, I
 
 > My father bought the car new, and the issue has been present since day one. All related ECUs have been reflashed with the latest firmware at least twice, yet the symptom persists.
 
-![Dacia Dokker 2017 1.6](img/Prague_2017_Dacia_Dokker_1.webp#center)
+![Dacia Dokker 2017 1.6](/img/Prague_2017_Dacia_Dokker_1.webp#center)
 
 Last weekend I stayed over at my parents’ house and finally had the car in front of me. After breakfast I headed to the driveway, pulled the trim panel, unplugged the accelerator-pedal connectors, inspected the pins, and reseated everything - no corrosion, no bent terminals.
 
 Buried behind the gear lever I found an old ELM327 dongle. I plugged it into the OBD-II port and - right then I remembered iOS does not support classic-Bluetooth OBD adapters. After half an hour of futile scanning with my iPhone, I dug out an ancient Samsung tablet, installed the first free app in the Play Store, and the connection came alive. Let the games begin. 🙂
 
-![ELM327 Bluetooth](img/elm327.webp#center)
+![ELM327 Bluetooth](/img/elm327.webp#center)
 
 Holding the pedal steady while watching live data proved impossible, so I asked Dad to maintain roughly 15–20 % throttle while I recorded the PID read-outs. Even with the pedal locked, the engine randomly surged by 300–400 rpm for a second or two and then settled back.
 

@@ -5,7 +5,7 @@ draft: false
 tags: ["career", "automotive", "software-engineering", "mentorship", "sigma-technology", "personal-growth", "reflections"]
 description: "Reflections on my journey from automotive software engineering to my current role"
 cover:
-    image: "img/budapest_from_roof.jpg"
+    image: "/img/budapest_from_roof.jpg"
     alt: "A view of Budapest from the rooftop of my workplace"
     caption: "A view of Budapest from the rooftop of my workplace"
 ---

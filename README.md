@@ -1,7 +1,7 @@
 # Hi there, I'm **vakesz** 👋
 
 I’m a Software Engineer at **Sigma Technology** based in **Veszprém, Hungary**.  
-🌐 [vakesz.com](https://vakesz.com) | 🐦 [@vakeszqe](https://twitter.com/vakeszqe) :contentReference[oaicite:0]{index=0}
+🌐 [vakesz.com](https://vakesz.com) | 🐦 [@vakeszqe](https://twitter.com/vakeszqe)
 
 ---
 

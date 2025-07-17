@@ -1,0 +1,43 @@
+<section class="article discussion"></section>
+<script>
+  (function() {
+    const container = document.querySelector('section.article.discussion');
+    let currentTheme = localStorage.getItem('pref-theme');  // 'light' or 'dark'
+
+    function loadComments() {
+      // choose GitHub theme based on PaperMod setting
+      const utterancesTheme = currentTheme === 'dark'
+        ? 'github-dark'
+        : 'github-light';
+
+      // clear out any old script
+      container.innerHTML = '';
+
+      // create new script tag
+      const s = document.createElement('script');
+      s.src = 'https://utteranc.es/client.js';
+      s.async = true;
+      s.crossOrigin = 'anonymous';
+      s.setAttribute('repo', 'vakesz/vakesz-comments');
+      s.setAttribute('issue-term', 'pathname');
+      s.setAttribute('theme', utterancesTheme);
+      container.appendChild(s);
+    }
+
+    // initial load
+    loadComments();
+
+    // listen for the PaperMod toggle button
+    document
+      .querySelector('.logo-switches')
+      .addEventListener('click', async () => {
+        // wait a moment for PaperMod to flip localStorage
+        await new Promise(r => setTimeout(r, 150));
+        const newTheme = localStorage.getItem('pref-theme');
+        if (newTheme !== currentTheme) {
+          currentTheme = newTheme;
+          loadComments();
+        }
+      });
+  })();
+</script>

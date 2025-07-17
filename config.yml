@@ -16,6 +16,7 @@ params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   description: "Personal blog of vakesz - Software Engineer sharing insights on backend development, C/Python programming, tech and personal adventures"
   author: "vakesz"
+  comments: true
   keywords:
     - "personal blog"
     - "software engineer"

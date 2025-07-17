@@ -16,7 +16,7 @@ About the name “vakesz”: Honestly, I can’t remember exactly where it came 
 
 When I was young, I started learning programming at school. Breaking down big ideas into smaller, solvable parts really hooked me. Later, I tried university, but it felt monotonous and uninspiring - I just wasn’t learning anything that excited me. After about a year and a half, I dropped out with zero regrets. At the time, I didn’t realize how that choice might come back to haunt me.
 
-![One of my first PCs from around the 90s.](/img/pc2.webp#center)
+![One of my first PCs from around the 90s.](img/pc2.webp#center)
 
 I spent around six years at Continental Automotive, learning a lot and developing as a professional. Looking back, one of the things I’m most grateful for during those years was having amazing mentors like Zoltan P. and Attila H. They had a big impact on both my technical skills and my approach to solving problems. Instead of simply giving me answers, they challenged me to think deeper and discover solutions on my own.
 

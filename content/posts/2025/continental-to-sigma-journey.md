@@ -5,7 +5,7 @@ draft: false
 tags: ["career", "automotive", "software-engineering", "mentorship", "sigma-technology", "personal-growth", "reflections"]
 description: "Reflections on my journey from automotive software engineering to my current role"
 cover:
-    image: "/img/budapest_from_roof.webp"
+    image: "img/budapest_from_roof.webp"
     alt: "A view of Budapest from the rooftop of my workplace"
     caption: "A view of Budapest from the rooftop of my workplace"
 ---
@@ -14,7 +14,7 @@ cover:
 
 I've mostly worked in places unrelated to software engineering. Without a degree, I often felt I had no way to prove myself. Then one day I met someone who changed everything: Roland B., a senior engineer at Continental at the time. He saw potential in me - partly motivated by the referral bonus he’d get if I was hired - but more importantly, he took the time to share knowledge and guide me through the complexities of automotive software development. His mentorship was invaluable and opened doors I never imagined. It took me a while to grasp the full impact of his support, but it was a true turning point in my career. Looking back, it's still surprising that we met by chance while cycling with friends. Roland was an experienced and talented rider as well - and that our conversations ranged from bikes to my career path.
 
-![Continental in Frankfurt](/img/continental_frankfurt.webp#center)
+![Continental in Frankfurt](img/continental_frankfurt.webp#center)
 
 ## The Continental Years
 
@@ -52,7 +52,7 @@ If I recall correctly, the first round was a casual chat with a recruiter where 
 
 That final interview made me much more anxious, and unfortunately, it didn’t go as well as I’d hoped. Many of the questions focused on Linux and C++ topics I wasn’t prepared for, and I struggled to provide answers. I felt disappointed, but the recruiter reassured me that even if I didn’t pass this round, they still wanted to offer me a position, on a different team. That was a relief, but I was also a little uncertain about what this would mean for my future at Sigma.
 
-![Outside the Sigma Office](/img/sigma_outside.webp#center)
+![Outside the Sigma Office](img/sigma_outside.webp#center)
 
 ## Current Reflections
 

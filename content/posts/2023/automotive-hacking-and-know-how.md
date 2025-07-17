@@ -5,7 +5,7 @@ draft: false
 tags: ["automotive", "hacking", "know-how", "CAN", "CAN-FD", "CAN-XL", "FlexRay", "Ethernet", "LIN", "SOME/IP", "DoIP"]
 description: "A dive into automotive networks, protocols, and how to get started with automotive hacking."
 cover:
-    image: "/img/hacking_cover.jpg"
+    image: "/img/hacking_cover.webp"
     alt: "Automotive Hacking"
     caption: "Exploring the world of automotive networks and hacking"
 ---

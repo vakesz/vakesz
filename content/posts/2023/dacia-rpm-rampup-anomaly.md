@@ -5,7 +5,7 @@ draft: false
 tags: ["Dacia", "RPM", "anomaly", "automotive"]
 description: "Exploring the RPM rampup anomaly in Dacia vehicles and its implications."
 cover:
-    image: "/img/dokker_cover.jpg"
+    image: "/img/dokker_cover.webp"
     alt: "Dacia Dokker"
     caption: "Dacia Dokker - A common sight on the roads"
 ---

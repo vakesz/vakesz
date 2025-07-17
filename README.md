@@ -1,17 +1,16 @@
-# vakesz.com Blog
+# Hi there, I'm **vakesz** 👋
 
-This repository contains the source for the personal blog built with [Hugo](https://gohugo.io/) using the [PaperMod](https://github.com/adityatelange/hugo-PaperMod) theme.
+I’m a Software Engineer at **Sigma Technology** based in **Veszprém, Hungary**.  
+🌐 [vakesz.com](https://vakesz.com) | 🐦 [@vakeszqe](https://twitter.com/vakeszqe) :contentReference[oaicite:0]{index=0}
 
-## Development
+---
 
-1. **Install Hugo** – version `0.146` or newer is required.
-2. **Clone the repository** and initialise submodules:
-   ```bash
-   git submodule update --init --recursive
-   ```
-3. **Start the development server**:
-   ```bash
-   hugo server -D
-   ```
+## 📫 How to reach me
 
-Static assets (like favicons) live in the `static` folder. Custom shortcodes and styles are under `layouts/shortcodes` and `assets/css/extended`.
+- 💻 Website: [vakesz.com](https://vakesz.com) :contentReference[oaicite:6]{index=6}  
+- 📧 Email:hello@vakesz.com
+- 🐦 Twitter: [@vakeszqe](https://twitter.com/vakeszqe)
+
+---
+
+> “Code is like humor. When you have to explain it, it’s bad.” – Cory House

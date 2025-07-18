@@ -1,12 +1,8 @@
 # ──────────────────────────────────────────────────────────────────────────────
-# Top‐level sections:
-#   media:    where Pages CMS will store and serve uploaded files
-#   content:  your editable pages and collections
-#   components: reusable field groups (optional)
+# Pages CMS config for a PaperMod‐based Hugo site in “profile” mode
 # ──────────────────────────────────────────────────────────────────────────────
 
 media:
-  # simple string shorthand: input/output both set to static/img
   - name: images
     label: Images
     input: static/img
@@ -14,25 +10,57 @@ media:
     extensions: [ jpg, jpeg, png, webp, svg ]
 
 content:
-  # Home page (single file)
-  - name: home
-    label: Home
+  # Site configuration (PaperMod profile homepage)
+  - name: siteConfig
+    label: Site Configuration
     type: file
-    path: content/_index.md
-    format: yaml-frontmatter
+    path: config.yaml
+    format: yaml
     fields:
-      - name: title
-        label: Title
+      - name: baseURL
+        label: Site URL
         type: string
-      - name: body
-        label: Body
-        type: rich-text
+      - name: title
+        label: Site Title
+        type: string
+      - name: languageCode
+        label: Language
+        type: string
+      # PaperMod profile params
+      - name: params.profile.name
+        label: Your Name
+        type: string
+      - name: params.profile.image
+        label: Avatar Image
+        type: image
+      - name: params.profile.bio
+        label: Bio
+        type: text
+      - name: params.profile.location
+        label: Location
+        type: string
+      - name: params.profile.website
+        label: Website
+        type: string
+      - name: params.profile.showTags
+        label: Show Tags?
+        type: boolean
+      # Social links
+      - name: params.social.twitter
+        label: Twitter Handle
+        type: string
+      - name: params.social.github
+        label: GitHub Username
+        type: string
+      - name: params.social.linkedin
+        label: LinkedIn URL
+        type: string
 
-  # About page (single file)
+  # About page (now using index.md under a folder)
   - name: about
     label: About
     type: file
-    path: content/about.md
+    path: content/about/index.md
     format: yaml-frontmatter
     fields:
       - name: title
@@ -42,13 +70,13 @@ content:
         label: Body
         type: rich-text
 
-  # Blog posts (collection of files)
+  # Blog posts collection
   - name: posts
     label: Posts
     type: collection
     path: content/posts
     format: yaml-frontmatter
-    filename: '{year}-{month}-{day}-{primary}.md'
+    filename: '{year}-{month}-{day}-{slug}.md'
     fields:
       - name: title
         label: Title
@@ -79,7 +107,6 @@ content:
         order: desc
 
 components:
-  # Example reusable image field component
   image:
     label: Image
     type: image

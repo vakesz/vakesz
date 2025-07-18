@@ -27,36 +27,42 @@ content:
         label: Language
         type: string
       # PaperMod profile params
-      - name: params.profile.name
+      - name: params.profileMode.title
         label: Your Name
         type: string
-      - name: params.profile.image
+      - name: params.profileMode.imageUrl
         label: Avatar Image
         type: image
-      - name: params.profile.bio
+      - name: params.profileMode.subtitle
         label: Bio
         type: text
-      - name: params.profile.location
+      - name: params.profileMode.location
         label: Location
         type: string
-      - name: params.profile.website
+      - name: params.profileMode.website
         label: Website
         type: string
-      - name: params.profile.showTags
+      - name: params.profileMode.showTags
         label: Show Tags?
         type: boolean
       # Social links
-      - name: params.social.twitter
+      - name: params.socialIcons.twitter
         label: Twitter Handle
         type: string
-      - name: params.social.github
+      - name: params.socialIcons.github
         label: GitHub Username
         type: string
-      - name: params.social.linkedin
+      - name: params.socialIcons.linkedin
         label: LinkedIn URL
         type: string
+      - name: params.socialIcons.youtube
+        label: YouTube URL
+        type: string
+      - name: params.socialIcons.instagram
+        label: Instagram URL
+        type: string
 
-  # About page (now using index.md under a folder)
+  # About page
   - name: about
     label: About
     type: file
@@ -66,6 +72,9 @@ content:
       - name: title
         label: Title
         type: string
+      - name: date
+        label: Last updated date
+        type: date
       - name: body
         label: Body
         type: rich-text

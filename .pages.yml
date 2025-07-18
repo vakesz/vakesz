@@ -1,0 +1,86 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# Top‐level sections:
+#   media:    where Pages CMS will store and serve uploaded files
+#   content:  your editable pages and collections
+#   components: reusable field groups (optional)
+# ──────────────────────────────────────────────────────────────────────────────
+
+media:
+  # simple string shorthand: input/output both set to static/img
+  - name: images
+    label: Images
+    input: static/img
+    output: /img
+    extensions: [ jpg, jpeg, png, webp, svg ]
+
+content:
+  # Home page (single file)
+  - name: home
+    label: Home
+    type: file
+    path: content/_index.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: body
+        label: Body
+        type: rich-text
+
+  # About page (single file)
+  - name: about
+    label: About
+    type: file
+    path: content/about.md
+    format: yaml-frontmatter
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: body
+        label: Body
+        type: rich-text
+
+  # Blog posts (collection of files)
+  - name: posts
+    label: Posts
+    type: collection
+    path: content/posts
+    format: yaml-frontmatter
+    filename: '{year}-{month}-{day}-{primary}.md'
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: date
+        label: Date
+        type: date
+      - name: draft
+        label: Draft
+        type: boolean
+      - name: tags
+        label: Tags
+        type: text
+        list: true
+      - name: summary
+        label: Summary
+        type: text
+      - name: body
+        label: Body
+        type: rich-text
+    view:
+      fields: [ title, date, draft ]
+      primary: title
+      sort: [ date ]
+      default:
+        search: ''
+        sort: date
+        order: desc
+
+components:
+  # Example reusable image field component
+  image:
+    label: Image
+    type: image
+    description: Select or upload an image from the Images media folder

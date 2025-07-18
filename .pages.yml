@@ -14,7 +14,7 @@ content:
   - name: siteConfig
     label: Site Configuration
     type: file
-    path: config.yaml
+    path: config.yml
     format: yaml
     fields:
       - name: baseURL

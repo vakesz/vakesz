@@ -3,7 +3,7 @@ title: "From Continental to Sigma: Lessons from Automotive Software Development"
 date: 2025-07-17T14:00:00+02:00
 draft: false
 tags: ["career", "automotive", "software-engineering", "mentorship", "sigma-technology", "personal-growth", "reflections"]
-description: "Reflections on my journey from automotive software engineering to my current role"
+description: "Reflections on my journey from automotive software engineering at Continental to consulting at Sigma Technology. Lessons learned about mentorship, team dynamics, and career growth in the automotive industry."
 cover:
     image: "/img/budapest_from_roof.webp"
     alt: "A view of Budapest from the rooftop of my workplace"

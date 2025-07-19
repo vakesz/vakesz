@@ -2,8 +2,8 @@
 title: "Automotive Hacking and Know-How"
 date: 2023-02-08T12:11:30+02:00
 draft: false
-tags: ["automotive", "hacking", "know-how", "CAN", "CAN-FD", "CAN-XL", "FlexRay", "Ethernet", "LIN", "SOME/IP", "DoIP"]
-description: "A dive into automotive networks, protocols, and how to get started with automotive hacking."
+tags: ["automotive", "hacking", "security", "CAN", "CAN-FD", "FlexRay", "Ethernet", "LIN", "reverse-engineering", "embedded-systems", "cybersecurity", "OBD-II"]
+description: "A comprehensive guide to automotive hacking, reverse engineering, and cybersecurity. Learn about CAN, FlexRay, Ethernet protocols, tools for automotive penetration testing, and responsible security research in the automotive industry."
 cover:
     image: "/img/hacking_cover.webp"
     alt: "Automotive Hacking"

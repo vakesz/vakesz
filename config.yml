@@ -44,6 +44,14 @@ params:
     - "C programming"
     - "Python"
     - "vakesz"
+    - "self-taught developer"
+    - "mountain biking"
+    - "homelab"
+    - "truenas"
+    - "embedded systems"
+    - "mentorship"
+    - "career development"
+    - "professional growth"
   
   # Theme Settings
   defaultTheme: "auto" # auto, light, dark
@@ -60,6 +68,26 @@ params:
   ShowFullTextinRSS: true
   ShowRssButtonInSectionTermList: true
   ShowAllPagesInArchive: false
+  
+  # SEO Settings
+  images: ["/img/cover-default.webp"]  # Default fallback image for social sharing
+  cover:
+    linkFullImages: true
+    responsiveImages: true
+    hidden: false
+  
+  # Enhanced SEO metadata
+  schema:
+    publisherType: "Person"
+    sameAs:
+      - "https://github.com/vakesz"
+      - "https://twitter.com/vakeszqe"
+      - "https://linkedin.com/in/gabor-pinkova"
+      - "https://instagram.com/vakeszqe"
+      - "https://youtube.com/@vakeszqe"
+  
+  # Default images for posts without covers
+  defaultPostImage: "/img/cover-default.webp"
   
   # Search Settings
   # for search
@@ -171,9 +199,19 @@ markup:
     # lineNos: true
     # style: monokai
 
-# Enable search functionality
+# Enable search functionality and sitemap
 outputs:
   home:
     - "HTML"
     - "RSS"
     - "JSON"
+  page:
+    - "HTML"
+  section:
+    - "HTML"
+    - "RSS"
+
+sitemap:
+  changefreq: weekly
+  priority: 0.5
+  filename: sitemap.xml

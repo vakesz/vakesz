@@ -2,8 +2,8 @@
 title: "Dacia RPM Rampup Anomaly"
 date: 2023-03-15T18:11:30+02:00
 draft: false
-tags: ["Dacia", "RPM", "anomaly", "automotive"]
-description: "Exploring the RPM rampup anomaly in Dacia vehicles and its implications."
+tags: ["Dacia", "RPM", "anomaly", "automotive", "troubleshooting", "engine-diagnostics", "OBD-II", "automotive-repair"]
+description: "Troubleshooting a persistent idle speed oscillation in a 2017 Dacia Dokker 1.6. Diagnostic journey using OBD-II tools, ELM327, and systematic troubleshooting to identify potential vacuum leak causes."
 cover:
     image: "/img/dokker_cover.webp"
     alt: "Dacia Dokker"

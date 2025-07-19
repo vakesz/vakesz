@@ -2,8 +2,8 @@
 title: "Who's vakesz"
 date: 2022-12-10T16:11:30+02:00
 draft: false
-tags: ["vakesz", "introduction", "personal"]
-description: "A brief introduction to who I am, my journey, and what I do."
+tags: ["vakesz", "introduction", "personal", "self-taught developer", "software engineer", "continental automotive", "sigma technology", "career journey", "mentorship", "mountain biking", "hungary"]
+description: "Meet vakesz - a self-taught software engineer from Hungary sharing his journey from Continental Automotive to Sigma Technology, the mentors who shaped his career, and his passion for mountain biking and homelab tinkering."
 cover:
     image: "https://upload.wikimedia.org/wikipedia/en/e/eb/Windows_95_at_first_run.png"
     alt: "One of my first PCs from the 90s"

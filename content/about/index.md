@@ -2,7 +2,8 @@
 title: "About Me"
 date: 2025-05-15T12:00:00+02:00
 draft: false
-description: "Why you'd want to go on a date with me"
+description: "Meet vakesz - Self-taught Software Engineer at Sigma Technology specializing in C/Python development, automotive software, and backend systems. From Continental Automotive to homelab enthusiast."
+summary: "Software Engineer passionate about backend development, automotive systems, and continuous learning. Currently at Sigma Technology, formerly at Continental Automotive."
 url: "/about/"
 type: "about"
 layout: "about"
@@ -11,6 +12,7 @@ comments: false
 disableShare: true
 ShowReadingTime: false
 ShowWordCount: false
+keywords: ["vakesz", "software engineer", "backend developer", "C programming", "Python developer", "automotive software", "Sigma Technology", "Continental Automotive", "self-taught developer", "Hungary"]
 ---
 
 ## {{< fa laptop-code >}} What I Do

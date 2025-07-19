@@ -7,16 +7,30 @@ enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
+canonifyURLs: true
+enableGitInfo: true
 
 minify:
   disableXML: true
   minifyOutput: true
+
+pagination:
+  disableAliases: false
+  pagerSize: 5
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   description: "Personal blog of vakesz - Software Engineer sharing insights on backend development, C/Python programming, tech and personal adventures"
   author: "vakesz"
   comments: true
+  utterances:
+    repo: "vakesz/vakesz-comments"
+    issueTerm: "pathname"
+    label: "comments"
+    theme: "github-light"
+    darkTheme: "photon-dark"
+    crossorigin: "anonymous"
+
   keywords:
     - "personal blog"
     - "software engineer"
@@ -38,7 +52,7 @@ params:
   # Display Settings
   ShowReadingTime: true
   ShowShareButtons: true
-  ShowPostNavLinks: true
+  ShowPostNavLinks: false
   ShowWordCount: false
   ShowCodeCopyButtons: true
   ShowBreadCrumbs: true
@@ -66,8 +80,6 @@ params:
     title: "vakesz"
     subtitle: "Software Engineer | Backend Developer | Tech Tinkerer"
     imageUrl: "img/me.webp"
-    imageWidth: 120
-    imageHeight: 120
     imageTitle: "vakesz"
     buttons:
       - name: "Posts"
@@ -127,6 +139,7 @@ params:
 services:
   googleAnalytics:
     id: G-7FB5CVV3WZ
+    consentMode: true
 
 menu:
   main:

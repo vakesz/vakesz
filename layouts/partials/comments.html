@@ -1,50 +1,117 @@
-<div id="comments"></div>
-<script>
-(function() {
-  // Configuration pulled from your Hugo params
-  const {
-    repo: utterancesRepo,
-    issueTerm: utterancesIssueTerm,
-    label: utterancesLabel,
-    theme: lightTheme,
-    darkTheme: darkThemeName,
-    crossorigin: scriptCrossOrigin
-  } = {
-    repo: "{{ .Site.Params.utterances.repo }}",
-    issueTerm: "{{ .Site.Params.utterances.issueTerm }}",
-    label: "{{ .Site.Params.utterances.label }}",
-    theme: "{{ .Site.Params.utterances.theme }}",
-    darkTheme: "{{ .Site.Params.utterances.darkTheme }}",
-    crossorigin: "{{ .Site.Params.utterances.crossorigin }}"
-  };
+{{- if .Site.Params.comments }}
+  <div id="comments"></div>
+  <script>
+    (function() {
+      const container = document.getElementById('comments');
+      const provider = '{{ lower .Site.Params.commentProvider }}';
 
-  // Renders (or re-renders) the Utterances comment widget
-  const initializeCommentsWidget = () => {
-    const selectedTheme = 
-      localStorage.getItem("pref-theme") === "dark" 
-        ? darkThemeName 
-        : lightTheme;
+      // helper to clear & re-inject comment widget
+      const loadComments = () => {
+        container.innerHTML = '';
+        const cfg = configs[provider]();
+        insert(cfg);
+      };
 
-    const scriptElement = document.createElement("script");
-    Object.assign(scriptElement, {
-      src: "https://utteranc.es/client.js",
-      async: true,
-      crossOrigin: scriptCrossOrigin
-    });
-    scriptElement.setAttribute("repo", utterancesRepo);
-    scriptElement.setAttribute("issue-term", utterancesIssueTerm);
-    scriptElement.setAttribute("label", utterancesLabel);
-    scriptElement.setAttribute("theme", selectedTheme);
+      // Theme detection
+      const getTheme = () => {
+        const stored = localStorage.getItem('pref-theme');
+        return stored ||
+          (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      };
 
-    const commentsContainer = document.getElementById("comments");
-    commentsContainer.innerHTML = "";
-    commentsContainer.appendChild(scriptElement);
-  };
+      // Resource insertion helper
+      const insert = ({ css, src, attrs = {}, onload }) => {
+        if (css) {
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = css;
+          container.appendChild(link);
+        }
+        const script = document.createElement('script');
+        script.src = src;
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        Object.entries(attrs).forEach(([k, v]) => script.setAttribute(k, v));
+        if (onload) script.onload = onload;
+        container.appendChild(script);
+      };
 
-  document.addEventListener("DOMContentLoaded", () => {
-    initializeCommentsWidget();
-    document.querySelector(".logo-switches")
-      ?.addEventListener("click", () => setTimeout(initializeCommentsWidget, 100));
-  });
-})();
-</script>
+      // Provider configurations
+      const configs = {
+        utterances: () => {
+          const theme = getTheme() === 'dark'
+            ? '{{ default "github-dark" .Site.Params.utterances.darkTheme }}'
+            : '{{ default "github-light" .Site.Params.utterances.lightTheme }}';
+          return {
+            src: 'https://utteranc.es/client.js',
+            attrs: {
+              repo: '{{ .Site.Params.utterances.repo }}',
+              'issue-term': '{{ default "pathname" .Site.Params.utterances.issueterm }}',
+              theme: theme,
+              {{- with .Site.Params.utterances.label }}
+              'label': '{{ . }}',
+              {{- end }}
+            }
+          };
+        },
+        giscus: () => {
+          const theme = getTheme() === 'dark'
+            ? '{{ default "dark" .Site.Params.giscus.darkTheme }}'
+            : '{{ default "light" .Site.Params.giscus.lightTheme }}';
+          return {
+            src: 'https://giscus.app/client.js',
+            attrs: {
+              'data-repo': '{{ .Site.Params.giscus.repo }}',
+              'data-repo-id': '{{ .Site.Params.giscus.repoId }}',
+              'data-category': '{{ .Site.Params.giscus.category }}',
+              'data-category-id': '{{ .Site.Params.giscus.categoryId }}',
+              'data-mapping': '{{ default "pathname" .Site.Params.giscus.mapping }}',
+              'data-reactions-enabled': '{{ default "1" .Site.Params.giscus.reactionsEnabled }}',
+              'data-emit-metadata': '{{ default "0" .Site.Params.giscus.emitMetadata }}',
+              'data-input-position': '{{ default "bottom" .Site.Params.giscus.inputPosition }}',
+              'data-theme': theme
+            }
+          };
+        },
+        gitalk: () => {
+          const theme = getTheme();
+          return {
+            css: '{{ .Site.Params.cdn.gitalkCSS }}',
+            src: '{{ .Site.Params.cdn.gitalkJS }}',
+            onload: () => {
+              new Gitalk({
+                clientID:    '{{ .Site.Params.gitalkClientId }}',
+                clientSecret:'{{ .Site.Params.gitalkClientSecret }}',
+                repo:        '{{ .Site.Params.gitalk.repo }}',
+                owner:       '{{ .Site.Params.gitalk.owner }}',
+                admin:       ['{{ .Site.Params.gitalk.owner }}'],
+                id: '{{ .File.UniqueID }}-',
+                title: '{{ .Page.Title }}'
+              }).render('comments');
+            }
+          };
+        }
+      };
+
+      if (!configs[provider]) {
+        console.error('Unknown comment provider:', provider);
+        return;
+      }
+
+      // initial load
+      loadComments();
+
+      // on theme-toggle button click
+      document.querySelector('.logo-switches')?.addEventListener('click', () =>
+        setTimeout(loadComments, 150)
+      );
+
+      // on OS-level color-scheme change
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+        if (!localStorage.getItem('pref-theme')) {
+          loadComments();
+        }
+      });
+    })();
+  </script>
+{{- end }}

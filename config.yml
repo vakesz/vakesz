@@ -22,15 +22,6 @@ params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   description: "Personal blog of vakesz - Software Engineer sharing insights on backend development, C/Python programming, tech and personal adventures"
   author: "vakesz"
-  comments: true
-  utterances:
-    repo: "vakesz/vakesz-comments"
-    issueTerm: "pathname"
-    label: "comments"
-    theme: "github-light"
-    darkTheme: "photon-dark"
-    crossorigin: "anonymous"
-
   keywords:
     - "personal blog"
     - "software engineer"
@@ -159,6 +150,16 @@ params:
     Text: "Suggest Changes"
     appendFilePath: true
   
+  # Comments
+  comments: true
+  commentProvider: "utterances"
+  utterances:
+    repo: "vakesz/vakesz-comments"
+    issueterm: "pathname"
+    label: "💬 comments"
+    lightTheme: "github-light"
+    darkTheme: "github-dark"
+
   # Analytics
   analytics:
     google:

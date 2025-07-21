@@ -1,3 +1,8 @@
+{{- if .Site.Params.commentTitle }}
+  {{ $title := default "Comments" .Site.Params.commentTitle }}
+  <h2 class="comment-section-title">{{ $title }}</h2>
+{{- end }}
+
 {{- if .Site.Params.comments }}
   <div id="comments"></div>
   <script>
@@ -69,6 +74,7 @@
               'data-reactions-enabled': '{{ default "1" .Site.Params.giscus.reactionsEnabled }}',
               'data-emit-metadata': '{{ default "0" .Site.Params.giscus.emitMetadata }}',
               'data-input-position': '{{ default "bottom" .Site.Params.giscus.inputPosition }}',
+              'data-loading': '{{ default "lazy" .Site.Params.giscus.loading }}',
               'data-theme': theme
             }
           };

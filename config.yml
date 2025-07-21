@@ -50,7 +50,7 @@ params:
   
   # Display Settings
   ShowReadingTime: true
-  ShowShareButtons: true
+  ShowShareButtons: false
   ShowPostNavLinks: false
   ShowWordCount: false
   ShowCodeCopyButtons: true
@@ -152,13 +152,21 @@ params:
   
   # Comments
   comments: true
-  commentProvider: "utterances"
-  utterances:
+  commentProvider: "giscus"
+  giscus:
     repo: "vakesz/vakesz-comments"
-    issueterm: "pathname"
-    label: "💬 comments"
-    lightTheme: "github-light"
-    darkTheme: "github-dark"
+    repoId: "R_kgDOPORzRA"
+    category: "Comments"
+    categoryId: "DIC_kwDOPORzRM4CtP6v"
+    mapping: "pathname"
+    strict: "0"
+    reactionsEnabled: "1" # 0 = disable, 1 = enable
+    emitMetadata: "0"
+    inputPosition: "bottom"
+    lightTheme: "noborder_light"
+    darkTheme: "noborder_gray"
+    lang: "en"
+    loading: "lazy" # lazy, eager, or auto
 
   # Analytics
   analytics:

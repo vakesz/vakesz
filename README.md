@@ -1,13 +1,13 @@
 # Hi there, I'm **vakesz** 👋
 
-I’m a Software Engineer at **Sigma Technology** based in **Veszprém, Hungary**.  
+I’m a Software Engineer at **Sigma Technology** based in **Budapest, Hungary**.  
 🌐 [vakesz.com](https://vakesz.com) | 🐦 [@vakeszqe](https://twitter.com/vakeszqe)
 
 ---
 
 ## 📫 How to reach me
 
-- 💻 Website: [vakesz.com](https://vakesz.com) :contentReference[oaicite:6]{index=6}  
+- 💻 Website: [vakesz.com](https://vakesz.com)
 - 📧 Email:hello@vakesz.com
 - 🐦 Twitter: [@vakeszqe](https://twitter.com/vakeszqe)
 

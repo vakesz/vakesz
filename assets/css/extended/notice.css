@@ -1,0 +1,51 @@
+.notice {
+  border-left: 4px solid;
+  padding: 1rem;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+/* Title styling */
+.notice-title {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Note */
+.notice-note {
+  border-color: rgba(122, 162, 247, 0.8);
+  background-color: rgba(122, 162, 247, 0.1);
+  color: inherit;
+}
+
+/* Info */
+.notice-info {
+  border-color: rgba(91, 192, 222, 0.8);
+  background-color: rgba(91, 192, 222, 0.1);
+  color: inherit;
+}
+
+/* Warning */
+.notice-warning {
+  border-color: rgba(240, 173, 78, 0.9);
+  background-color: rgba(240, 173, 78, 0.1);
+  color: inherit;
+}
+
+/* Error */
+.notice-error {
+  border-color: rgba(217, 83, 79, 0.9);
+  background-color: rgba(217, 83, 79, 0.1);
+  color: inherit;
+}
+
+/* Markdown content override (optional) */
+.notice-content p:last-child {
+  margin-bottom: 0;
+}

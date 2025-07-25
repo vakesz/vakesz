@@ -1,0 +1,15 @@
+<!-- Shortcode for displaying notices (note, info, warning, error) -->
+{{- $type := .Get "type" | default "note" -}}
+{{- $title := .Get "title" -}}
+<div class="notice notice-{{ $type }}">
+  {{- if $title -}}
+    <strong class="notice-title">{{ $title }}</strong><br>
+  {{- end -}}
+  <span class="notice-content">{{ .Inner | markdownify }}</span>
+</div>
+
+{{/* Example usage:
+{{< notice type="warning" title="Attention" >}}
+This is a warning message.
+{{</notice >}}
+*/}}

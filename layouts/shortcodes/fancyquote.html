@@ -1,0 +1,13 @@
+<!-- Shortcode for displaying a fancy quote with optional author attribution -->
+{{- $author := .Get "author" | default "" -}}
+<blockquote class="fancy-quote">
+  <p class="quote-content">“{{ .Inner | markdownify }}”</p>
+  {{- if $author }}
+    <footer class="quote-author">{{ $author }}</footer>
+  {{- end }}
+</blockquote>
+{{/*
+{{< fancyquote author="Albert Einstein" >}}
+Imagination is more important than knowledge.
+{{< /fancyquote >}}
+*/}}

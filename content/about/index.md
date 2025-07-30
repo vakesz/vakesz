@@ -15,7 +15,12 @@ ShowWordCount: false
 keywords: ["vakesz", "software engineer", "backend developer", "C programming", "Python developer", "automotive software", "Sigma Technology", "Continental Automotive", "self-taught developer", "Hungary"]
 ---
 
-![Profile](/img/profile.webp#center)
+{{< figure
+  src="/img/profile.webp"
+  alt="Profile"
+  class="rounded-image"
+  align="center"
+>}}
 
 I’m a software engineer at **Sigma Technology**, currently developing backend systems and developer tooling. My journey has taken me from tinkering with old computers as a kid, through years of hands-on experience at Continental Automotive, to building robust systems and developer tooling in consulting roles. I’m self-taught, driven by curiosity, and always eager to learn how things work under the hood. When I’m not elbow‑deep in code, you’ll find me writing about something that's on my mind, tweaking my homelab, or having a good bike ride in the hills.
 
@@ -42,7 +47,8 @@ At Continental, I started with unit testing and gradually moved into more comple
 
 ## Philosophy
 
-> “Code is like humor. When you have to explain it, it’s bad.” – Cory House
+{{< fancyquote author="Cory House" >}}
+Code is like humor. When you have to explain it, it’s bad.{{< /fancyquote >}}
 
 I believe great software strikes the sweet spot between **clarity**, **speed**, and **community**. That means:
 
@@ -60,7 +66,15 @@ When screens go dark you’ll usually catch me:
 - {{< fa mountain >}} Leading mountain biking trips around the Wexl Trails
 - {{< fa camera-retro >}} Capturing moments of my life on my phone, hopefully later with a Sony Alpha camera
 
-![Dirt Jumper](/img/dj.webp#center)
+{{< figure
+  src="/img/wexl.webp"
+  alt="Wexl Trails"
+  caption="At Wexl Trails, Austria"
+  class="rounded-image"
+  align="center"
+  width="auto"
+  height="400px"
+>}}
 
 ---
 

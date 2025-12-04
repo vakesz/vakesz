@@ -2,6 +2,7 @@ baseURL: "https://vakesz.com/"
 title: "vakesz.com"
 theme: "PaperMod"
 languageCode: "en-us"
+defaultContentLanguage: "en"
 
 enableRobotsTXT: true
 buildDrafts: false
@@ -9,45 +10,61 @@ buildFuture: false
 buildExpired: false
 canonifyURLs: true
 enableGitInfo: true
+enableEmoji: true
 
+# Performance
 minify:
   disableXML: true
   minifyOutput: true
+  tdewolff:
+    html:
+      keepWhitespace: false
+    css:
+      keepCSS2: true
+    js:
+      keepVarNames: false
 
+# Pagination
 pagination:
   disableAliases: false
-  pagerSize: 5
+  pagerSize: 10
+
+# Security
+security:
+  exec:
+    allow: ['^go$', '^git$', '^npx$', '^postcss$']
 
 params:
-  env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Personal blog of vakesz - Software Engineer sharing insights on backend development, C/Python programming, tech and personal adventures"
-  author: "vakesz"
+  env: production
+
+  # SEO Core
+  title: "vakesz.com"
+  description: "Personal blog of vakesz - Software Engineer sharing insights on backend development, C/Python programming, automotive tech, and personal adventures"
+  author: "Gabor Pinkova"
+
+  # OpenGraph & Twitter Cards
+  images: ["/img/cover-default.webp"]
+  twitter:
+    card: "summary_large_image"
+    site: "@vakeszqe"
+    creator: "@vakeszqe"
+
+  # Keywords (deduplicated and focused)
   keywords:
-    - "personal blog"
     - "software engineer"
     - "backend developer"
     - "C programming"
-    - "Python programming"
-    - "tech blog"
-    - "personal development"
-    - "software engineering"
-    - "backend development"
-    - "C programming"
     - "Python"
-    - "vakesz"
-    - "self-taught developer"
-    - "mountain biking"
-    - "homelab"
-    - "truenas"
     - "embedded systems"
-    - "mentorship"
-    - "career development"
-    - "professional growth"
-  
+    - "automotive software"
+    - "tech blog"
+    - "homelab"
+    - "vakesz"
+
   # Theme Settings
-  defaultTheme: "auto" # auto, light, dark
+  defaultTheme: "auto"
   disableThemeToggle: false
-  
+
   # Display Settings
   ShowReadingTime: true
   ShowShareButtons: false
@@ -56,18 +73,25 @@ params:
   ShowCodeCopyButtons: true
   ShowBreadCrumbs: true
   ShowToc: false
+  TocOpen: false
   ShowFullTextinRSS: true
   ShowRssButtonInSectionTermList: true
-  ShowAllPagesInArchive: false
-  
-  # SEO Settings
-  images: ["/img/cover-default.webp"]  # Default fallback image for social sharing
+  ShowAllPagesInArchive: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  hidemeta: false
+  hideSummary: false
+  disableScrollToTop: false
+
+  # Cover images
   cover:
     linkFullImages: true
     responsiveImages: true
     hidden: false
-  
-  # Enhanced SEO metadata
+    hiddenInList: false
+    hiddenInSingle: false
+
+  # Schema.org structured data
   schema:
     publisherType: "Person"
     sameAs:
@@ -76,30 +100,27 @@ params:
       - "https://linkedin.com/in/gabor-pinkova"
       - "https://instagram.com/vakeszqe"
       - "https://youtube.com/@vakeszqe"
-  
-  # Default images for posts without covers
-  defaultPostImage: "/img/cover-default.webp"
-  
-  # Search Settings
-  # for search
-  # https://fusejs.io/api/options.html
+
+  # Search Settings (Fuse.js)
   fuseOpts:
     isCaseSensitive: false
     shouldSort: true
     location: 0
     distance: 1000
     threshold: 0.4
-    minMatchCharLength: 0
-    limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
-    keys: ["title", "permalink", "summary", "content"]
-  
+    minMatchCharLength: 2
+    limit: 10
+    keys: ["title", "permalink", "summary", "content", "tags"]
+
   # Profile Mode
   profileMode:
     enabled: true
     title: "vakesz"
     subtitle: "Software Engineer | Backend Developer | Tech Tinkerer"
-    imageUrl: "img/me.webp"
+    imageUrl: "img/me.jpg"
     imageTitle: "vakesz"
+    imageWidth: 150
+    imageHeight: 150
     buttons:
       - name: "Posts"
         url: "/posts"
@@ -107,21 +128,27 @@ params:
         url: "/about"
       - name: "Search"
         url: "/search"
-  
-  # Footer Settings
+
+  # Home info mode (alternative to profile, kept for reference)
+  homeInfoParams:
+    Title: "vakesz"
+    Content: "Software Engineer | Backend Developer | Tech Tinkerer"
+
+  # Footer
   footer:
     text: "© vakesz.com"
     hideCopyright: true
-  
-  # Assets (favicons, etc.)
+
+  # Assets
   assets:
-    disableFingerprinting: true
+    disableFingerprinting: false
     favicon: "favicon.ico"
     favicon16x16: "favicon-16x16.png"
     favicon32x32: "favicon-32x32.png"
     apple_touch_icon: "apple-touch-icon.png"
     theme_color: "#2e2e33"
-  
+    msapplication_TileColor: "#2e2e33"
+
   # Social Icons
   socialIcons:
     - name: "github"
@@ -136,21 +163,22 @@ params:
       url: "https://youtube.com/@vakeszqe"
     - name: "rss"
       url: "/index.xml"
-  
+
   # Share Buttons
   ShareButtons:
     - "linkedin"
     - "twitter"
-    - "facebook"
     - "reddit"
-  
-  # Edit Post Settings
+    - "telegram"
+    - "whatsapp"
+
+  # Edit Post
   editPost:
-    URL: "https://github.com/vakesz/vakesz-hugo/tree/main/content"
+    URL: "https://github.com/vakesz/vakesz/tree/main/content"
     Text: "Suggest Changes"
     appendFilePath: true
-  
-  # Comments
+
+  # Comments - Giscus
   comments: true
   commentProvider: "giscus"
   giscus:
@@ -160,55 +188,70 @@ params:
     categoryId: "DIC_kwDOPORzRM4CtP6v"
     mapping: "pathname"
     strict: "0"
-    reactionsEnabled: "1" # 0 = disable, 1 = enable
+    reactionsEnabled: "1"
     emitMetadata: "0"
     inputPosition: "bottom"
     lightTheme: "noborder_light"
     darkTheme: "noborder_gray"
     lang: "en"
-    loading: "lazy" # lazy, eager, or auto
+    loading: "lazy"
 
   # Analytics
   analytics:
     google:
       SiteVerificationTag: "wmIgcRkyiMpn8yLYNlSWr_CyKBP82dHZ0-edEILNaBY"
 
+# Google Analytics
 services:
   googleAnalytics:
     id: G-7FB5CVV3WZ
     consentMode: true
 
+# Navigation Menu
 menu:
   main:
     - identifier: "posts"
       name: "Posts"
       url: "/posts/"
       weight: 10
+    - identifier: "archives"
+      name: "Archives"
+      url: "/archives/"
+      weight: 20
     - identifier: "about"
       name: "About"
       url: "/about/"
-      weight: 20
+      weight: 40
     - identifier: "search"
       name: "Search"
       url: "/search/"
-      weight: 30
-    - identifier: "tags"
-      name: "Tags"
-      url: "/tags/"
-      weight: 40
+      weight: 50
 
-# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
+# Code highlighting
 pygmentsUseClasses: true
 markup:
   highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
     noClasses: false
-    # anchorLineNos: true
-    # codeFences: true
-    # guessSyntax: true
-    # lineNos: true
-    # style: monokai
+    style: dracula
+    tabWidth: 4
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer: true
+    renderer:
+      unsafe: false
+      hardWraps: false
 
-# Enable search functionality and sitemap
+# Outputs
 outputs:
   home:
     - "HTML"
@@ -219,8 +262,45 @@ outputs:
   section:
     - "HTML"
     - "RSS"
+  taxonomy:
+    - "HTML"
+    - "RSS"
+  term:
+    - "HTML"
+    - "RSS"
 
+# Sitemap
 sitemap:
-  changefreq: weekly
+  changefreq: "weekly"
   priority: 0.5
-  filename: sitemap.xml
+  filename: "sitemap.xml"
+
+# Taxonomies
+taxonomies:
+  tag: tags
+  category: categories
+  series: series
+
+# Related content
+related:
+  includeNewer: true
+  threshold: 80
+  toLower: true
+  indices:
+    - name: tags
+      weight: 100
+    - name: categories
+      weight: 80
+    - name: date
+      weight: 10
+
+# Privacy settings (GDPR-friendly)
+privacy:
+  googleAnalytics:
+    anonymizeIP: true
+    respectDoNotTrack: true
+    useSessionStorage: false
+  x:
+    enableDNT: true
+  youtube:
+    privacyEnhanced: true

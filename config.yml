@@ -1,18 +1,24 @@
+# ============================================
+# CORE
+# ============================================
 baseURL: "https://vakesz.com/"
 title: "vakesz.com"
 theme: "PaperMod"
 languageCode: "en-us"
 defaultContentLanguage: "en"
 
+# ============================================
+# BUILD
+# ============================================
+timeout: "30s"
 enableRobotsTXT: true
+enableGitInfo: true
+enableEmoji: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
 canonifyURLs: true
-enableGitInfo: true
-enableEmoji: true
 
-# Performance
 minify:
   disableXML: true
   minifyOutput: true
@@ -20,36 +26,26 @@ minify:
     html:
       keepWhitespace: false
     css:
-      keepCSS2: true
+      version: 2
     js:
       keepVarNames: false
 
-# Pagination
 pagination:
-  disableAliases: false
   pagerSize: 10
 
-# Security
 security:
   exec:
     allow: ['^go$', '^git$', '^npx$', '^postcss$']
 
+# ============================================
+# THEME PARAMS
+# ============================================
 params:
   env: production
 
-  # SEO Core
-  title: "vakesz.com"
+  # SEO & Meta
   description: "Personal blog of vakesz - Software Engineer sharing insights on backend development, C/Python programming, automotive tech, and personal adventures"
   author: "Gabor Pinkova"
-
-  # OpenGraph & Twitter Cards
-  images: ["/img/cover-default.webp"]
-  twitter:
-    card: "summary_large_image"
-    site: "@vakeszqe"
-    creator: "@vakeszqe"
-
-  # Keywords (deduplicated and focused)
   keywords:
     - "software engineer"
     - "backend developer"
@@ -61,11 +57,27 @@ params:
     - "homelab"
     - "vakesz"
 
-  # Theme Settings
-  defaultTheme: "auto"
-  disableThemeToggle: false
+  # OpenGraph & Twitter
+  images: ["/img/cover-default.webp"]
+  twitter:
+    card: "summary_large_image"
+    site: "@vakeszqe"
+    creator: "@vakeszqe"
 
-  # Display Settings
+  # Schema.org
+  schema:
+    publisherType: "Person"
+    sameAs:
+      - "https://github.com/vakesz"
+      - "https://twitter.com/vakeszqe"
+      - "https://linkedin.com/in/gabor-pinkova"
+      - "https://instagram.com/vakeszqe"
+      - "https://youtube.com/@vakeszqe"
+
+  # Theme
+  defaultTheme: "auto"
+
+  # Display
   ShowReadingTime: true
   ShowShareButtons: false
   ShowPostNavLinks: false
@@ -78,46 +90,17 @@ params:
   ShowRssButtonInSectionTermList: true
   ShowAllPagesInArchive: true
   UseHugoToc: true
-  disableSpecial1stPost: false
-  hidemeta: false
-  hideSummary: false
-  disableScrollToTop: false
 
-  # Cover images
   cover:
     linkFullImages: true
     responsiveImages: true
-    hidden: false
-    hiddenInList: false
-    hiddenInSingle: false
 
-  # Schema.org structured data
-  schema:
-    publisherType: "Person"
-    sameAs:
-      - "https://github.com/vakesz"
-      - "https://twitter.com/vakeszqe"
-      - "https://linkedin.com/in/gabor-pinkova"
-      - "https://instagram.com/vakeszqe"
-      - "https://youtube.com/@vakeszqe"
-
-  # Search Settings (Fuse.js)
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 2
-    limit: 10
-    keys: ["title", "permalink", "summary", "content", "tags"]
-
-  # Profile Mode
+  # Profile
   profileMode:
     enabled: true
     title: "vakesz"
     subtitle: "Software Engineer | Backend Developer | Tech Tinkerer"
-    imageUrl: "img/me.jpg"
+    imageUrl: "img/me.webp"
     imageTitle: "vakesz"
     imageWidth: 150
     imageHeight: 150
@@ -129,27 +112,7 @@ params:
       - name: "Search"
         url: "/search"
 
-  # Home info mode (alternative to profile, kept for reference)
-  homeInfoParams:
-    Title: "vakesz"
-    Content: "Software Engineer | Backend Developer | Tech Tinkerer"
-
-  # Footer
-  footer:
-    text: "© vakesz.com"
-    hideCopyright: true
-
-  # Assets
-  assets:
-    disableFingerprinting: false
-    favicon: "favicon.ico"
-    favicon16x16: "favicon-16x16.png"
-    favicon32x32: "favicon-32x32.png"
-    apple_touch_icon: "apple-touch-icon.png"
-    theme_color: "#2e2e33"
-    msapplication_TileColor: "#2e2e33"
-
-  # Social Icons
+  # Social
   socialIcons:
     - name: "github"
       url: "https://github.com/vakesz"
@@ -164,23 +127,8 @@ params:
     - name: "rss"
       url: "/index.xml"
 
-  # Share Buttons
-  ShareButtons:
-    - "linkedin"
-    - "twitter"
-    - "reddit"
-    - "telegram"
-    - "whatsapp"
-
-  # Edit Post
-  editPost:
-    URL: "https://github.com/vakesz/vakesz/tree/main/content"
-    Text: "Suggest Changes"
-    appendFilePath: true
-
-  # Comments - Giscus
+  # Comments (Giscus)
   comments: true
-  commentProvider: "giscus"
   giscus:
     repo: "vakesz/vakesz-comments"
     repoId: "R_kgDOPORzRA"
@@ -196,18 +144,39 @@ params:
     lang: "en"
     loading: "lazy"
 
-  # Analytics
-  analytics:
-    google:
-      SiteVerificationTag: "wmIgcRkyiMpn8yLYNlSWr_CyKBP82dHZ0-edEILNaBY"
+  # Search (Fuse.js)
+  fuseOpts:
+    isCaseSensitive: false
+    threshold: 0.4
+    minMatchCharLength: 2
+    distance: 1000
+    limit: 10
+    keys: ["title", "permalink", "summary", "content", "tags"]
 
-# Google Analytics
-services:
-  googleAnalytics:
-    id: G-7FB5CVV3WZ
-    consentMode: true
+  # Assets
+  assets:
+    disableFingerprinting: false
+    favicon: "favicon.ico"
+    favicon16x16: "favicon-16x16.png"
+    favicon32x32: "favicon-32x32.png"
+    apple_touch_icon: "apple-touch-icon.png"
+    theme_color: "#2e2e33"
+    msapplication_TileColor: "#2e2e33"
 
-# Navigation Menu
+  # Footer
+  footer:
+    text: "© vakesz.com"
+    hideCopyright: true
+
+  # Edit Post
+  editPost:
+    URL: "https://github.com/vakesz/vakesz/tree/main/content"
+    Text: "Suggest Changes"
+    appendFilePath: true
+
+# ============================================
+# CONTENT
+# ============================================
 menu:
   main:
     - identifier: "posts"
@@ -221,14 +190,12 @@ menu:
     - identifier: "about"
       name: "About"
       url: "/about/"
-      weight: 40
+      weight: 30
     - identifier: "search"
       name: "Search"
       url: "/search/"
-      weight: 50
+      weight: 40
 
-# Code highlighting
-pygmentsUseClasses: true
 markup:
   highlight:
     anchorLineNos: false
@@ -251,37 +218,21 @@ markup:
       unsafe: false
       hardWraps: false
 
-# Outputs
 outputs:
-  home:
-    - "HTML"
-    - "RSS"
-    - "JSON"
-  page:
-    - "HTML"
-  section:
-    - "HTML"
-    - "RSS"
-  taxonomy:
-    - "HTML"
-    - "RSS"
-  term:
-    - "HTML"
-    - "RSS"
+  home: ["HTML", "RSS", "JSON"]
+  page: ["HTML"]
+  section: ["HTML", "RSS"]
+  taxonomy: ["HTML", "RSS"]
+  term: ["HTML", "RSS"]
 
-# Sitemap
 sitemap:
-  changefreq: "weekly"
-  priority: 0.5
   filename: "sitemap.xml"
 
-# Taxonomies
 taxonomies:
   tag: tags
   category: categories
   series: series
 
-# Related content
 related:
   includeNewer: true
   threshold: 80
@@ -294,7 +245,14 @@ related:
     - name: date
       weight: 10
 
-# Privacy settings (GDPR-friendly)
+# ============================================
+# SERVICES & PRIVACY
+# ============================================
+services:
+  googleAnalytics:
+    id: G-7FB5CVV3WZ
+    consentMode: true
+
 privacy:
   googleAnalytics:
     anonymizeIP: true

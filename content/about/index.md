@@ -83,7 +83,6 @@ When screens go dark you’ll usually catch me:
 - {{< fa envelope >}} **Email:** [hello@vakesz.com](mailto:hello@vakesz.com)
 - {{< fa brands github >}} **GitHub:** [@vakesz](https://github.com/vakesz)
 - {{< fa brands x-twitter >}} **Twitter / X:** [@vakeszqe](https://twitter.com/vakeszqe)
-- {{< fa brands matrix-org >}} *Prefer IM? Ping me on Matrix: `@vakesz:matrix.org` — my notifications are on.*
 
 ---
 

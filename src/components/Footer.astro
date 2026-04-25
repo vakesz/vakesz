@@ -1,0 +1,47 @@
+---
+import { SITE, SOCIAL } from "../consts";
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© {year} {SITE.author}</span>
+    <span class="dot" aria-hidden="true">·</span>
+    <a href={`mailto:${SITE.email}`}>email</a>
+    <span class="dot" aria-hidden="true">·</span>
+    <a href={SOCIAL.github} rel="me">github</a>
+    <span class="dot" aria-hidden="true">·</span>
+    <a href={SOCIAL.twitter} rel="me">twitter</a>
+    <span class="dot" aria-hidden="true">·</span>
+    <a href="/rss.xml">rss</a>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    margin-top: 4rem;
+    padding: 1.5rem 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+  .wrap {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    padding: 0 1.25rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .site-footer a {
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .site-footer a:hover {
+    color: var(--ink);
+  }
+  .dot {
+    opacity: 0.5;
+  }
+</style>

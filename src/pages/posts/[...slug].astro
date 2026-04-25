@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from "astro:content";
+import Post from "../../layouts/Post.astro";
+import YouTube from "../../components/YouTube.astro";
+import { isPublished } from "../../lib/content";
+
+const mdxComponents = { YouTube };
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts", isPublished);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await render(post);
+const minutesRead = remarkPluginFrontmatter?.minutesRead as number | undefined;
+---
+
+<Post
+  title={post.data.title}
+  description={post.data.description}
+  pubDate={post.data.pubDate}
+  updatedDate={post.data.updatedDate}
+  tags={post.data.tags}
+  cover={post.data.cover}
+  minutesRead={minutesRead}
+>
+  <Content components={mdxComponents} />
+</Post>

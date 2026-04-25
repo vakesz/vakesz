@@ -1,9 +1,0 @@
-{{- $type := .Get "type" | default "note" -}}
-{{- $title := .Get "title" -}}
-{{- $role := cond (or (eq $type "warning") (eq $type "error")) "alert" "note" -}}
-<div class="notice notice-{{ $type }}" role="{{ $role }}">
-  {{- if $title -}}
-    <strong class="notice-title">{{ $title }}</strong><br>
-  {{- end -}}
-  <span class="notice-content">{{ .Inner | markdownify }}</span>
-</div>

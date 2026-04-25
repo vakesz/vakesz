@@ -1,0 +1,79 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "./FormattedDate.astro";
+
+interface Props {
+  post: CollectionEntry<"posts">;
+}
+const { post } = Astro.props;
+const href = `/posts/${post.id}/`;
+---
+
+<a class="card post-card" href={href}>
+  <h3 class="title">{post.data.title}</h3>
+  <p class="desc">{post.data.description}</p>
+  <div class="meta">
+    <FormattedDate date={post.data.pubDate} short />
+    {
+      post.data.tags.length > 0 && (
+        <>
+          <span class="dot" aria-hidden="true">
+            ·
+          </span>
+          <span class="tags">
+            {post.data.tags
+              .slice(0, 3)
+              .map((t) => `#${t}`)
+              .join("  ")}
+          </span>
+        </>
+      )
+    }
+  </div>
+</a>
+
+<style>
+  .card {
+    display: block;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    color: inherit;
+    text-decoration: none;
+    transition:
+      border-color 150ms,
+      transform 150ms,
+      background 150ms;
+  }
+  .card:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .title {
+    margin: 0;
+    font-size: 1.08rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .desc {
+    margin: 0.4rem 0 0.75rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-family: var(--font-mono);
+  }
+  .dot {
+    opacity: 0.5;
+  }
+  .tags {
+    letter-spacing: 0.01em;
+  }
+</style>

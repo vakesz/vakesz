@@ -1,0 +1,101 @@
+---
+import { SITE, GA_ID } from "../consts";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+  pubDate?: Date;
+  tags?: string[];
+}
+
+const {
+  title,
+  description = SITE.description,
+  image = "/img/cover-default.webp",
+  article = false,
+  pubDate,
+  tags = [],
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).toString();
+const ogImage = new URL(image, Astro.site ?? SITE.url).toString();
+const fullTitle = title === SITE.title ? title : `${title} · ${SITE.title}`;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="canonical" href={canonical} />
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<meta name="author" content={SITE.author} />
+
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#09090b" media="(prefers-color-scheme: dark)" />
+
+<meta property="og:type" content={article ? "article" : "website"} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:site_name" content={SITE.title} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:locale" content={SITE.locale} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@vakeszqe" />
+<meta name="twitter:creator" content="@vakeszqe" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+{article && pubDate && (
+  <meta property="article:published_time" content={pubDate.toISOString()} />
+)}
+{article && tags.map((t) => <meta property="article:tag" content={t} />)}
+
+<link rel="alternate" type="application/rss+xml" title={`${SITE.title} · RSS`} href="/rss.xml" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<script is:inline>
+  (function () {
+    try {
+      const saved = localStorage.getItem("theme");
+      const prefersDark =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+      const theme = saved || (prefersDark ? "dark" : "light");
+      document.documentElement.dataset.theme = theme;
+    } catch {
+      document.documentElement.dataset.theme = "light";
+    }
+  })();
+</script>
+
+{GA_ID && (
+  <>
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+    <script is:inline define:vars={{ GA_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "granted"
+      });
+      gtag("js", new Date());
+      gtag("config", GA_ID, {
+        allow_google_signals: false
+      });
+    </script>
+  </>
+)}

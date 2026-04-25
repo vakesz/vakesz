@@ -1,0 +1,90 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+const { project } = Astro.props;
+const href = `/projects/${project.id}/`;
+---
+
+<a class="card project-card" href={href}>
+  <div class="row">
+    <h3 class="title">{project.data.title}</h3>
+    {
+      project.data.pinned && (
+        <span class="pinned" aria-label="Pinned">
+          ★
+        </span>
+      )
+    }
+  </div>
+  <p class="desc">{project.data.description}</p>
+  {
+    project.data.stack.length > 0 && (
+      <ul class="stack">
+        {project.data.stack.slice(0, 5).map((s) => (
+          <li>{s}</li>
+        ))}
+      </ul>
+    )
+  }
+</a>
+
+<style>
+  .card {
+    display: block;
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.15rem 1.25rem;
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+    transition:
+      border-color 150ms,
+      transform 150ms;
+  }
+  .card:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .title {
+    margin: 0;
+    font-size: 1.08rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .pinned {
+    margin-left: auto;
+    color: var(--accent);
+    font-size: 0.9rem;
+  }
+  .desc {
+    margin: 0.45rem 0 0.85rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+  .stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .stack li {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 0.15rem 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--muted);
+  }
+</style>

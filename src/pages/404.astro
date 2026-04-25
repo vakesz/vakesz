@@ -1,0 +1,68 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHeader from "../components/PageHeader.astro";
+---
+
+<Base title="404 · Not Found" description="This page doesn't exist.">
+  <section class="not-found">
+    <p class="code gradient">404</p>
+    <PageHeader align="center" title="Lost in " accented="transit.">
+      <Fragment slot="lede">
+        The page you're looking for doesn't exist — or it got renamed when I was tidying up. Try
+        searching, or head <a href="/">home</a>.
+      </Fragment>
+    </PageHeader>
+
+    <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
+    <div id="search" class="search-box"></div>
+  </section>
+
+  <script is:inline>
+    window.addEventListener("DOMContentLoaded", () => {
+      const el = document.getElementById("search");
+      if (!el) return;
+      import("/pagefind/pagefind-ui.js")
+        .then(({ PagefindUI }) => {
+          new PagefindUI({
+            element: "#search",
+            showImages: false,
+            excerptLength: 30,
+            resetStyles: false,
+          });
+        })
+        .catch(() => {
+          /* index not yet built */
+        });
+    });
+  </script>
+</Base>
+
+<style>
+  .not-found {
+    padding: 3rem 0 2rem;
+    text-align: center;
+  }
+  .code {
+    font-family: var(--font-mono);
+    font-size: clamp(3.5rem, 10vw, 5.5rem);
+    letter-spacing: -0.04em;
+    margin: 0;
+    line-height: 1;
+    font-weight: 700;
+  }
+  .search-box {
+    --pagefind-ui-primary: var(--accent);
+    --pagefind-ui-text: var(--ink);
+    --pagefind-ui-background: var(--bg);
+    --pagefind-ui-border: var(--border);
+    --pagefind-ui-tag: var(--muted-bg);
+    --pagefind-ui-border-radius: 10px;
+    --pagefind-ui-image-border-radius: 8px;
+    --pagefind-ui-image-box-ratio: 3 / 2;
+    --pagefind-ui-font: var(--font-sans);
+    margin-top: 2rem;
+    text-align: left;
+    max-width: 560px;
+    margin-inline: auto;
+  }
+</style>

@@ -1,0 +1,88 @@
+---
+title: "Automotive Hacking and Know-How"
+pubDate: 2023-02-08
+description: "A practical starting point for automotive hacking — CAN, CAN-FD, LIN, FlexRay, Ethernet, tooling, and how not to brick an ECU on the first try."
+tags:
+  - automotive
+  - security
+  - CAN
+  - reverse-engineering
+  - embedded
+cover:
+  src: "../../assets/covers/hacking_cover.webp"
+  alt: "Automotive Hacking"
+  caption: "Automotive networks and where to poke them"
+---
+
+I've been listening to [Hack és Lángos](https://hackeslangos.show/) for years. They go deep on in-vehicle networks, what you can observe and modify in a car, and why security matters. Hungarian-only, but worth the time if you follow.
+
+---
+
+## Core automotive protocols
+
+| Protocol                                        | Purpose & key traits                                                                      | Status in 2025                                  |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| **CAN 2.0**                                     | 1 Mbit/s arbitration-based bus for control messages. Cheap, ubiquitous, 8-byte payload.   | Everywhere for body/chassis control.            |
+| **CAN-FD**                                      | Extends CAN to 64-byte payloads and up to 8 Mbit/s in the data phase.                     | Shipping on nearly every new model since ~2021. |
+| **LIN**                                         | Low-cost single-wire bus (19.2 kbit/s) for simple actuators (mirrors, seats, HVAC flaps). | Mature, still growing.                          |
+| **FlexRay**                                     | 10 Mbit/s dual-channel, time-triggered, fault-tolerant.                                   | Niche; being replaced by Ethernet.              |
+| **Automotive Ethernet (100/1000BASE-T1 + TSN)** | Switched network for ADAS, infotainment, OTA updates.                                     | Standard for domain/zonal backbones since 2023. |
+| **SOME/IP**                                     | Service-oriented middleware over Ethernet (often with DoIP).                              | OEM-agnostic standard for ADAS & infotainment.  |
+| **DoIP**                                        | UDS diagnostics over TCP/UDP instead of CAN.                                              | Mandatory under EU Regulation 2018/858.         |
+
+> There are more protocols in use — this is just the subset I've worked with and a starting point if you want to dig deeper.
+
+![Automotive network layers and typical data rates](/img/network.webp)
+
+---
+
+## Getting your first traces
+
+1. **Start with the OBD-II port** (standard 16-pin J1962 connector).
+   - Cheap ELM327-compatible dongles work for basic UDS/OBD requests.
+   - For raw logging, use a real sniffer: _CandleLight_, _CANtact Pro_, _ValueCAN 4_.
+
+2. **Understand the gateway.** Most vehicles only route diagnostic frames to OBD. To see the rest:
+   - Locate the gateway ECU in the wiring diagram.
+   - Back-probe the high-speed CAN bus, or build a bench harness with the target ECUs plus a lab supply (12 V and 5 V rails).
+
+3. **Pick your tooling.**
+   - Commercial: Vector CANalyzer/CANoe, Intrepid Vehicle Spy.
+   - Open-source: Wireshark (with `socketcan`), SavvyCAN, Kayak, cabana (Comma.ai).
+   - On Linux: `ip link set can0 up type can bitrate 500000` is your friend.
+
+4. **Decode the data.** Without a DBC file, frames are just IDs and payloads. Public options:
+   - [OpenDBC](https://github.com/commaai/opendbc) — crowd-sourced DBCs for 150+ models.
+   - OEM repair manuals often leak DIDs and PID mappings.
+   - Record a log while actuating something (window switch, indicator) and diff the frames.
+
+## Responsible experimentation
+
+- **Always bench-test first.** Shorting a bus or sending malformed frames can brick an ECU.
+- Keep a clean power supply (13.8 V max) and current-limit to 2–3 A.
+- Have an OBD service tool (e.g. Autel AP200) on hand to clear DTCs.
+- Never probe live airbags or high-voltage EV buses without training and PPE.
+- Anything on public roads must comply with local law. Tampering with safety systems is illegal in most jurisdictions.
+
+## Where to go next
+
+| Goal              | Suggested project                                                                                   |
+| ----------------- | --------------------------------------------------------------------------------------------------- |
+| Build confidence  | Log CAN traffic and blink a dashboard light by replaying a frame.                                   |
+| Add features      | Retrofit a reverse camera; enable hidden OEM functions (e.g. lane-assist).                          |
+| Security research | Fuzz UDS services. Beware of permanent DTCs.                                                        |
+| Advanced          | Stand up an Ethernet TSN lab with an NXP SJA1105 switch; experiment with SOME/IP service discovery. |
+
+---
+
+## Further reading
+
+- [Awesome Automotive Security](https://github.com/Marcin214/awesome-automotive) — curated papers, tools, talks.
+- _Car Hacking Handbook_ (2nd ed., 2024) — definitive intro with practical labs.
+- [OpenDBC](https://github.com/commaai/opendbc) — public DBC collection.
+- [AUTOSAR](https://www.autosar.org/standards/classic-23-11/) — spec bundles, including the crypto library.
+- [_The Bus Reverse-Engineered_](https://www.youtube.com/watch?v=myW2cxyOHEQ) — Donut Media replay demo.
+- BMW Future Mobility R&D — [LTT tour](https://www.youtube.com/watch?v=3In3u2QpSUE).
+- SANS ICS612 Automotive Cybersecurity — hands-on offensive/defensive training.
+
+_Happy (and safe) hacking._

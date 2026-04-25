@@ -1,0 +1,40 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { rssLanguage } from "../consts";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  article?: boolean;
+  pubDate?: Date;
+  tags?: string[];
+  wide?: boolean;
+}
+
+const { title, description, image, article, pubDate, tags, wide = false } = Astro.props;
+---
+
+<!doctype html>
+<html lang={rssLanguage}>
+  <head>
+    <BaseHead
+      title={title}
+      description={description}
+      image={image}
+      article={article}
+      pubDate={pubDate}
+      tags={tags}
+    />
+  </head>
+  <body>
+    <Header />
+    <main class={wide ? "content-wide" : "content"}>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

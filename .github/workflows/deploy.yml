@@ -56,6 +56,9 @@ jobs:
           SITE: ${{ steps.pages.outputs.origin }}
         run: bun run build
 
+      - name: Generate Pagefind search index
+        run: bunx pagefind --site dist
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

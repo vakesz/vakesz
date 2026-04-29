@@ -92,6 +92,15 @@ main {
   margin: 0 auto;
   padding: 2.5rem 1.25rem 2rem;
 }
+@media (max-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+  .content,
+  .content-wide {
+    padding: 2rem 1rem 1.5rem;
+  }
+}
 
 h1,
 h2,
@@ -165,6 +174,14 @@ table {
   border-collapse: collapse;
   font-size: 0.95rem;
 }
+@media (max-width: 640px) {
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+}
 th,
 td {
   padding: 0.5rem 0.75rem;
@@ -200,6 +217,9 @@ pre code {
   border: 0;
   padding: 0;
   font-size: inherit;
+}
+:not(pre) > code {
+  overflow-wrap: anywhere;
 }
 
 :focus-visible {
@@ -355,6 +375,22 @@ html[data-theme="dark"] .astro-code span {
 @media (max-width: 640px) {
   .grid-2 {
     grid-template-columns: 1fr;
+  }
+  .section-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    margin: 2rem 0 0.9rem;
+  }
+  .section-title a {
+    font-size: 0.82rem;
+  }
+  .page-hero {
+    margin: 0.35rem 0 1.8rem;
+  }
+  .page-hero .lede {
+    font-size: 1rem;
+    line-height: 1.55;
   }
 }
 

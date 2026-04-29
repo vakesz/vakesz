@@ -166,7 +166,30 @@ const featuredProjects = (await getCollection("projects", ({ data }) => !data.ar
     .hero-photo {
       order: -1;
       justify-self: start;
-      width: min(260px, 60%);
+      width: min(280px, 62%);
+    }
+  }
+
+  @media (max-width: 520px) {
+    .hero {
+      gap: 1.35rem;
+      padding: 0.5rem 0 2rem;
+    }
+    .hero h1 {
+      font-size: clamp(1.85rem, 10vw, 2.35rem);
+      margin-bottom: 0.9rem;
+    }
+    .hero .lede {
+      font-size: 1rem;
+      line-height: 1.58;
+      margin-bottom: 1.2rem;
+    }
+    .hero-actions {
+      margin-bottom: 1.2rem;
+    }
+    .hero-photo {
+      justify-self: center;
+      width: min(220px, 72%);
     }
   }
 </style>

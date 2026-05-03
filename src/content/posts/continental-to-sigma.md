@@ -1,7 +1,7 @@
 ---
 title: "From Continental to Sigma"
 pubDate: 2025-07-17
-description: "Six years of automotive software at Continental, then the move to Sigma — mentorship, management, and why I stopped waiting for the environment to fix itself."
+description: "Six years of automotive software at Continental, then the move to Sigma - mentorship, management, and why I stopped waiting for the environment to fix itself."
 tags:
   - career
   - automotive
@@ -15,37 +15,37 @@ cover:
 
 ## How it started
 
-Most of my early jobs had nothing to do with software. Without a degree, I never felt I could prove what I could actually do. Then I met Roland B., a senior engineer at Continental at the time. He saw something worth a shot — partly the referral bonus, mostly the benefit of the doubt — and spent real time walking me through automotive software. That mentorship opened a door I didn't think was there. It took me a while to appreciate how much that mattered. We'd met by chance cycling with mutual friends; the conversations had drifted from bikes to my career.
+Most of my early jobs had nothing to do with software. Without a degree, I never felt I could prove what I could actually do. Then I met Roland B., a senior engineer at Continental at the time. He saw something worth a shot - partly the referral bonus, mostly the benefit of the doubt - and spent real time walking me through automotive software. That mentorship opened a door I didn't think was there. It took me a while to appreciate how much that mattered. We'd met by chance cycling with mutual friends; the conversations had drifted from bikes to my career.
 
 ## Continental
 
-Day one I was nervous. No formal software education, surrounded by people with degrees and years of experience. The team was welcoming; early tasks were mostly writing unit tests for a BMW project — repetitive, but it was the fastest way to learn the codebase. The tooling was less friendly than I expected (old IBM tools at first; they eventually switched to Git), but the rhythm was clear.
+Day one I was nervous. No formal software education, surrounded by people with degrees and years of experience. The team was welcoming; early tasks were mostly writing unit tests for a BMW project - repetitive, but it was the fastest way to learn the codebase. The tooling was less friendly than I expected (old IBM tools at first; they eventually switched to Git), but the rhythm was clear.
 
-Over time the work got harder. Implementing features, fixing real bugs, touching parts of a multi-million-line codebase. I hesitated to ask questions — afraid of looking incompetent. One colleague sat near me who seemed, at first glance, idle: he'd be staring at whisky bottles or steam games. But everyone went to him for help. Eventually I worked up the nerve too. His answers were almost always redirections — _look at these files, poke at this_. Frustrating at the time. In hindsight, one of the best things anyone did for me. I now try to mentor the same way.
+Over time the work got harder. Implementing features, fixing real bugs, touching parts of a multi-million-line codebase. I hesitated to ask questions - afraid of looking incompetent. One colleague sat near me who seemed, at first glance, idle: he'd be staring at whisky bottles or steam games. But everyone went to him for help. Eventually I worked up the nerve too. His answers were almost always redirections - _look at these files, poke at this_. Frustrating at the time. In hindsight, one of the best things anyone did for me. I now try to mentor the same way.
 
-After about a year I was handling things independently. Took on more, built relationships, and started contributing to a project using a stack I'd never seen — including CIDL, a component interface definition language. I went deep on the runtime environment, system/network protocols, everything that touched the thing. That kind of "learn the whole iceberg" project is rare and I got lucky to be on one.
+After about a year I was handling things independently. Took on more, built relationships, and started contributing to a project using a stack I'd never seen - including CIDL, a component interface definition language. I went deep on the runtime environment, system/network protocols, everything that touched the thing. That kind of "learn the whole iceberg" project is rare and I got lucky to be on one.
 
-A few years in, I was running my own work, speaking up in meetings, and mentoring. I also moved into a more generic system development role with less oversight — a change that forced me to manage my own time and priorities. The international side of Continental was a bonus: I could usually find someone in another country who'd seen my problem before.
+A few years in, I was running my own work, speaking up in meetings, and mentoring. I also moved into a more generic system development role with less oversight - a change that forced me to manage my own time and priorities. The international side of Continental was a bonus: I could usually find someone in another country who'd seen my problem before.
 
 ![Continental in Frankfurt](/img/continental_frankfurt.webp)
 
 ### The shift
 
-Then the community side started to fade. Experienced colleagues left — Marc H. among them, a close friend who was honest about where the company was heading. I was fine financially and professionally, but I was going through motions. Up, work, home, repeat. No growth, no challenge.
+Then the community side started to fade. Experienced colleagues left - Marc H. among them, a close friend who was honest about where the company was heading. I was fine financially and professionally, but I was going through motions. Up, work, home, repeat. No growth, no challenge.
 
-I started looking. Updated the CV, updated LinkedIn, sent applications. Several wanted a degree I didn't have. A German company got far — interviews, relocation package — and then in the final round with the hiring manager I felt looked down on. I didn't get the offer. Fine in retrospect; that's not a team I wanted to be on.
+I started looking. Updated the CV, updated LinkedIn, sent applications. Several wanted a degree I didn't have. A German company got far - interviews, relocation package - and then in the final round with the hiring manager I felt looked down on. I didn't get the offer. Fine in retrospect; that's not a team I wanted to be on.
 
-A recruiter from Sigma reached out not long after. I hesitated, then went for it. The interviews were conversational, not interrogations. I could actually be myself. The no-degree thing didn't come up as a blocker — it came up as context.
+A recruiter from Sigma reached out not long after. I hesitated, then went for it. The interviews were conversational, not interrogations. I could actually be myself. The no-degree thing didn't come up as a blocker - it came up as context.
 
 ### On management
 
-Best lessons from Continental were about management. Good managers led by example, got hands dirty, listened, acted on feedback. They trusted people, which is the short version of _didn't micromanage_. Bad managers did the opposite, and morale tracked exactly. Open-plan office, loud arguments, rigid attendance policies even when nothing needed the office — all the classic things. COVID forced a fully-remote arrangement that was a clear improvement; the return was disappointing.
+Best lessons from Continental were about management. Good managers led by example, got hands dirty, listened, acted on feedback. They trusted people, which is the short version of _didn't micromanage_. Bad managers did the opposite, and morale tracked exactly. Open-plan office, loud arguments, rigid attendance policies even when nothing needed the office - all the classic things. COVID forced a fully-remote arrangement that was a clear improvement; the return was disappointing.
 
 Two names I'll list: Florian and Silvia, software project managers who cared about the technical side and about the people. Once a customer pushed developers for delivery dates on the spot. I messaged Silvia; she joined the call and calmly told the customer that's not how dates get set. That kind of cover is worth a lot.
 
 ## Sigma
 
-First round was a conversation with a recruiter — background, what Sigma does, what to expect. Then a timed technical challenge. I was nervous, solved the problems in time, and moved to a final round with a team manager. That one didn't go well. Lots of Linux and C++ questions I wasn't ready for. I struggled through it and walked away feeling I'd blown it. The recruiter came back: different team, still an offer. Relief and a bit of unease about what a "different team" would actually look like.
+First round was a conversation with a recruiter - background, what Sigma does, what to expect. Then a timed technical challenge. I was nervous, solved the problems in time, and moved to a final round with a team manager. That one didn't go well. Lots of Linux and C++ questions I wasn't ready for. I struggled through it and walked away feeling I'd blown it. The recruiter came back: different team, still an offer. Relief and a bit of unease about what a "different team" would actually look like.
 
 ![Outside the Sigma office](/img/sigma_outside.webp)
 
@@ -57,4 +57,4 @@ One thing I'd tell my earlier self: ask the questions. People who seem unapproac
 
 ---
 
-Thanks to everyone who helped along the way — named or not.
+Thanks to everyone who helped along the way - named or not.

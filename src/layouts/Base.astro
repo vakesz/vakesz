@@ -11,11 +11,21 @@ interface Props {
   image?: string;
   article?: boolean;
   pubDate?: Date;
+  updatedDate?: Date;
   tags?: string[];
   wide?: boolean;
 }
 
-const { title, description, image, article, pubDate, tags, wide = false } = Astro.props;
+const {
+  title,
+  description,
+  image,
+  article,
+  pubDate,
+  updatedDate,
+  tags,
+  wide = false,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -27,6 +37,7 @@ const { title, description, image, article, pubDate, tags, wide = false } = Astr
       image={image}
       article={article}
       pubDate={pubDate}
+      updatedDate={updatedDate}
       tags={tags}
     />
   </head>
@@ -36,5 +47,8 @@ const { title, description, image, article, pubDate, tags, wide = false } = Astr
       <slot />
     </main>
     <Footer />
+    <script>
+      import "../scripts/code-copy";
+    </script>
   </body>
 </html>

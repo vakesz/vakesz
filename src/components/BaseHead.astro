@@ -1,5 +1,5 @@
 ---
-import { SITE, GA_ID } from "../consts";
+import { SITE, SOCIAL, GA_ID, TWITTER_HANDLE } from "../consts";
 
 interface Props {
   title: string;
@@ -7,6 +7,7 @@ interface Props {
   image?: string;
   article?: boolean;
   pubDate?: Date;
+  updatedDate?: Date;
   tags?: string[];
 }
 
@@ -16,12 +17,39 @@ const {
   image = "/img/cover-default.webp",
   article = false,
   pubDate,
+  updatedDate,
   tags = [],
 } = Astro.props;
 
-const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).toString();
-const ogImage = new URL(image, Astro.site ?? SITE.url).toString();
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const ogImage = new URL(image, Astro.site).toString();
 const fullTitle = title === SITE.title ? title : `${title} · ${SITE.title}`;
+
+const personLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: SITE.author,
+  url: Astro.site?.toString(),
+  email: `mailto:${SITE.email}`,
+  sameAs: [SOCIAL.github, SOCIAL.twitter, SOCIAL.linkedin, SOCIAL.youtube, SOCIAL.instagram],
+};
+
+const articleLd = article
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: title,
+      description,
+      url: canonical,
+      image: ogImage,
+      datePublished: pubDate?.toISOString(),
+      dateModified: (updatedDate ?? pubDate)?.toISOString(),
+      keywords: tags.join(", "),
+      mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
+      author: { "@type": "Person", name: SITE.author, url: Astro.site?.toString() },
+      publisher: { "@type": "Person", name: SITE.author, url: Astro.site?.toString() },
+    }
+  : null;
 ---
 
 <meta charset="utf-8" />
@@ -49,8 +77,8 @@ const fullTitle = title === SITE.title ? title : `${title} · ${SITE.title}`;
 <meta property="og:locale" content={SITE.locale} />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@vakeszqe" />
-<meta name="twitter:creator" content="@vakeszqe" />
+<meta name="twitter:site" content={TWITTER_HANDLE} />
+<meta name="twitter:creator" content={TWITTER_HANDLE} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
@@ -62,6 +90,11 @@ const fullTitle = title === SITE.title ? title : `${title} · ${SITE.title}`;
 
 <link rel="alternate" type="application/rss+xml" title={`${SITE.title} · RSS`} href="/rss.xml" />
 <link rel="sitemap" href="/sitemap-index.xml" />
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(personLd)} />
+{articleLd && (
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(articleLd)} />
+)}
 
 <script is:inline>
   (function () {

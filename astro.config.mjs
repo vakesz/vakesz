@@ -4,9 +4,10 @@ import sitemap from "@astrojs/sitemap";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs";
+import { transformerCodeMeta } from "./src/lib/shiki-transformers.mjs";
 
 export default defineConfig({
-  site: process.env.SITE ?? "https://vakesz.com",
+  site: "https://vakesz.com",
   integrations: [mdx(), sitemap()],
   prefetch: {
     prefetchAll: true,
@@ -39,6 +40,7 @@ export default defineConfig({
         dark: "github-dark-dimmed",
       },
       wrap: true,
+      transformers: [transformerCodeMeta()],
     },
   },
   build: {

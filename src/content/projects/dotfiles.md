@@ -9,4 +9,4 @@ order: 40
 The usual: shell config, editor settings, tmux, and a few install scripts
 for setting up a new machine without remembering every step from scratch.
 
-Not intended as a "framework" — just what works for me.
+Not intended as a "framework" - just what works for me.

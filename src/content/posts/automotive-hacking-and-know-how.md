@@ -1,7 +1,7 @@
 ---
 title: "Automotive Hacking and Know-How"
 pubDate: 2023-02-08
-description: "A practical starting point for automotive hacking — CAN, CAN-FD, LIN, FlexRay, Ethernet, tooling, and how not to brick an ECU on the first try."
+description: "A practical starting point for automotive hacking - CAN, CAN-FD, LIN, FlexRay, Ethernet, tooling, and how not to brick an ECU on the first try."
 tags:
   - automotive
   - security
@@ -30,7 +30,7 @@ I've been listening to [Hack és Lángos](https://hackeslangos.show/) for years.
 | **SOME/IP**                                     | Service-oriented middleware over Ethernet (often with DoIP).                              | OEM-agnostic standard for ADAS & infotainment.  |
 | **DoIP**                                        | UDS diagnostics over TCP/UDP instead of CAN.                                              | Mandatory under EU Regulation 2018/858.         |
 
-> There are more protocols in use — this is just the subset I've worked with and a starting point if you want to dig deeper.
+> There are more protocols in use - this is just the subset I've worked with and a starting point if you want to dig deeper.
 
 ![Automotive network layers and typical data rates](/img/network.webp)
 
@@ -52,7 +52,7 @@ I've been listening to [Hack és Lángos](https://hackeslangos.show/) for years.
    - On Linux: `ip link set can0 up type can bitrate 500000` is your friend.
 
 4. **Decode the data.** Without a DBC file, frames are just IDs and payloads. Public options:
-   - [OpenDBC](https://github.com/commaai/opendbc) — crowd-sourced DBCs for 150+ models.
+   - [OpenDBC](https://github.com/commaai/opendbc) - crowd-sourced DBCs for 150+ models.
    - OEM repair manuals often leak DIDs and PID mappings.
    - Record a log while actuating something (window switch, indicator) and diff the frames.
 
@@ -77,12 +77,12 @@ I've been listening to [Hack és Lángos](https://hackeslangos.show/) for years.
 
 ## Further reading
 
-- [Awesome Automotive Security](https://github.com/Marcin214/awesome-automotive) — curated papers, tools, talks.
-- _Car Hacking Handbook_ (2nd ed., 2024) — definitive intro with practical labs.
-- [OpenDBC](https://github.com/commaai/opendbc) — public DBC collection.
-- [AUTOSAR](https://www.autosar.org/standards/classic-23-11/) — spec bundles, including the crypto library.
-- [_The Bus Reverse-Engineered_](https://www.youtube.com/watch?v=myW2cxyOHEQ) — Donut Media replay demo.
-- BMW Future Mobility R&D — [LTT tour](https://www.youtube.com/watch?v=3In3u2QpSUE).
-- SANS ICS612 Automotive Cybersecurity — hands-on offensive/defensive training.
+- [Awesome Automotive Security](https://github.com/Marcin214/awesome-automotive) - curated papers, tools, talks.
+- _Car Hacking Handbook_ (2nd ed., 2024) - definitive intro with practical labs.
+- [OpenDBC](https://github.com/commaai/opendbc) - public DBC collection.
+- [AUTOSAR](https://www.autosar.org/standards/classic-23-11/) - spec bundles, including the crypto library.
+- [_The Bus Reverse-Engineered_](https://www.youtube.com/watch?v=myW2cxyOHEQ) - Donut Media replay demo.
+- BMW Future Mobility R&D - [LTT tour](https://www.youtube.com/watch?v=3In3u2QpSUE).
+- SANS ICS612 Automotive Cybersecurity - hands-on offensive/defensive training.
 
 _Happy (and safe) hacking._

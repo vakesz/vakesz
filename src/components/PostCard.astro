@@ -33,34 +33,9 @@ const href = `/posts/${post.id}/`;
 </a>
 
 <style>
-  .card {
-    display: block;
-    border: 1px solid var(--border);
-    background: var(--card-bg);
-    border-radius: 12px;
-    padding: 1.1rem 1.25rem;
-    color: inherit;
-    text-decoration: none;
-    transition:
-      border-color 150ms,
-      transform 150ms,
-      background 150ms;
-  }
-  .card:hover {
-    border-color: var(--accent);
-    transform: translateY(-1px);
-  }
-  .title {
-    margin: 0;
-    font-size: 1.08rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }
-  .desc {
-    margin: 0.4rem 0 0.75rem;
-    color: var(--muted);
-    font-size: 0.95rem;
-    line-height: 1.5;
+  .post-card .title,
+  .post-card .desc {
+    overflow-wrap: anywhere;
   }
   .meta {
     display: flex;
@@ -71,21 +46,11 @@ const href = `/posts/${post.id}/`;
     color: var(--muted);
     font-family: var(--font-mono);
   }
-  .dot {
-    opacity: 0.5;
-  }
   .tags {
     letter-spacing: 0.01em;
+    overflow-wrap: anywhere;
   }
-
   @media (max-width: 640px) {
-    .card {
-      padding: 0.95rem 1rem;
-    }
-    .desc {
-      margin: 0.35rem 0 0.65rem;
-      font-size: 0.92rem;
-    }
     .meta {
       font-size: 0.78rem;
       row-gap: 0.2rem;

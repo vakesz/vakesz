@@ -16,7 +16,7 @@ hidden in production.
 ## Build
 
 ```sh
-bun run build    # astro build + pagefind index
+bun run build    # astro build
 bun run preview
 ```
 

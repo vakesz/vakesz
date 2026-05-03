@@ -14,7 +14,7 @@ cover:
 
 A few weeks ago, during Continental's Family Day, I was talking with my father about a persistent idle-speed oscillation in his 2017 Dacia Dokker 1.6. We haven't lived together in years, so it was the first time I'd heard about it. Several of the day's talks were on engine management, so diagnosing the fault became the default topic.
 
-I don't know every automotive subsystem in depth, so I asked a few colleagues for direction. First hypothesis: a faulty throttle-by-wire pedal — maybe a non-linear position sensor or an intermittent connector. A service centre ruled it out: the ECU saw a clean 0–100% sweep with no drop-outs.
+I don't know every automotive subsystem in depth, so I asked a few colleagues for direction. First hypothesis: a faulty throttle-by-wire pedal - maybe a non-linear position sensor or an intermittent connector. A service centre ruled it out: the ECU saw a clean 0–100% sweep with no drop-outs.
 
 > My father bought the car new. The issue has been present since day one. Every related ECU has been reflashed with the latest firmware at least twice. It's still there.
 
@@ -22,7 +22,7 @@ I don't know every automotive subsystem in depth, so I asked a few colleagues fo
 
 Last weekend I stayed over at my parents' and finally had the car in front of me. After breakfast I pulled the trim, unplugged the accelerator-pedal connectors, checked the pins, reseated everything. No corrosion, no bent terminals.
 
-Behind the gear lever I found an old ELM327 dongle. Plugged it into the OBD-II port — then remembered iOS doesn't talk to classic-Bluetooth OBD adapters. Half an hour of futile scanning with my iPhone later, I dug out an ancient Samsung tablet, installed the first free app in the Play Store, and the connection came alive.
+Behind the gear lever I found an old ELM327 dongle. Plugged it into the OBD-II port - then remembered iOS doesn't talk to classic-Bluetooth OBD adapters. Half an hour of futile scanning with my iPhone later, I dug out an ancient Samsung tablet, installed the first free app in the Play Store, and the connection came alive.
 
 ![ELM327 Bluetooth](/img/elm327.webp)
 
@@ -30,7 +30,7 @@ Holding the pedal steady while watching live data was impossible solo, so I aske
 
 <YouTube id="8EJ7jPH_4eE" />
 
-Current best guess: a small intake-manifold vacuum leak — too small to trigger a DTC, but enough to lean the mixture and make the ECU compensate with extra fuel, showing up as a transient rev bump. Fuel consumption is about 0.5 L/100 km above spec, which fits.
+Current best guess: a small intake-manifold vacuum leak - too small to trigger a DTC, but enough to lean the mixture and make the ECU compensate with extra fuel, showing up as a transient rev bump. Fuel consumption is about 0.5 L/100 km above spec, which fits.
 
 We'll wait for the next service interval to check the intake manifold and vacuum hoses. I'll watch the consumption in the meantime.
 

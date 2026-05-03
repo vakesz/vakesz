@@ -8,6 +8,7 @@ import { tagSlug } from "../lib/content";
 interface Props {
   title: string;
   description: string;
+  slug: string;
   pubDate: Date;
   updatedDate?: Date;
   tags?: string[];
@@ -15,12 +16,30 @@ interface Props {
   minutesRead?: number;
 }
 
-const { title, description, pubDate, updatedDate, tags = [], cover, minutesRead } = Astro.props;
+const {
+  title,
+  description,
+  slug,
+  pubDate,
+  updatedDate,
+  tags = [],
+  cover,
+  minutesRead,
+} = Astro.props;
 
-const ogImage = typeof cover?.src === "string" ? cover.src : cover?.src.src;
+const coverOg = typeof cover?.src === "string" ? cover.src : cover?.src.src;
+const ogImage = coverOg ?? `/og/${slug}.png`;
 ---
 
-<Base title={title} description={description} image={ogImage} article pubDate={pubDate} tags={tags}>
+<Base
+  title={title}
+  description={description}
+  image={ogImage}
+  article
+  pubDate={pubDate}
+  updatedDate={updatedDate}
+  tags={tags}
+>
   <article class="prose post">
     <header class="post-header page-hero">
       <div class="glow" aria-hidden="true"></div>
@@ -90,6 +109,8 @@ const ogImage = typeof cover?.src === "string" ? cover.src : cover?.src.src;
         </ul>
       )
     }
+
+    <slot name="after" />
   </article>
 </Base>
 
@@ -109,9 +130,6 @@ const ogImage = typeof cover?.src === "string" ? cover.src : cover?.src.src;
     font-size: 0.82rem;
     color: var(--muted);
     margin: 0;
-  }
-  .post-meta .dot {
-    opacity: 0.5;
   }
   .cover {
     margin: 1.5rem -0.5rem 2rem;

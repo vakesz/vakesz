@@ -1,9 +1,8 @@
 export const SITE = {
-  title: "vakesz",
+  title: "vakesz.com",
   description:
     "Software engineer at Sigma Technology. Backend systems, developer tooling, and occasionally things with wheels.",
   author: "Gabor Pinkova",
-  url: "https://vakesz.com",
   locale: "en_US",
   email: "hello@vakesz.com",
 } as const;
@@ -23,5 +22,7 @@ export const SOCIAL = {
   instagram: "https://instagram.com/vakeszqe",
   youtube: "https://youtube.com/@vakeszqe",
 } as const;
+
+export const TWITTER_HANDLE = `@${new URL(SOCIAL.twitter).pathname.replace(/^\/+/, "").replace(/\/.*$/, "")}`;
 
 export const GA_ID = "G-7FB5CVV3WZ";

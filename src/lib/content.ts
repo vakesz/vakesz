@@ -22,3 +22,14 @@ export function byPinnedThenOrder(
 export function tagSlug(tag: string): string {
   return tag.toLowerCase().replace(/\s+/g, "-");
 }
+
+export function siblingPosts(
+  posts: CollectionEntry<"posts">[],
+  current: CollectionEntry<"posts">,
+): { prev?: CollectionEntry<"posts">; next?: CollectionEntry<"posts"> } {
+  const sorted = [...posts].sort(byPubDateDesc);
+  const index = sorted.findIndex((p) => p.id === current.id);
+  if (index === -1) return {};
+  // Sorted newest-first, so the newer ("next") post sits at a lower index.
+  return { next: sorted[index - 1], prev: sorted[index + 1] };
+}

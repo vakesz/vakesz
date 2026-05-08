@@ -25,7 +25,7 @@ content:
     type: collection
     path: src/content/posts
     format: yaml-frontmatter
-    filename: "{primary}.md"
+    filename: "{primary}.mdx"
     view:
       fields: [title, pubDate, draft, tags]
       primary: title

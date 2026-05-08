@@ -359,12 +359,10 @@ html[data-theme="dark"] .astro-code span {
   color: var(--muted);
   text-decoration: none;
   margin-right: 0.4rem;
-  opacity: 0;
-  transition: opacity 150ms;
 }
-.prose :is(h2, h3, h4, h5, h6):hover .heading-anchor,
+.heading-anchor:hover,
 .heading-anchor:focus-visible {
-  opacity: 1;
+  color: var(--accent);
 }
 
 /* -------- page-hero (shared eyebrow + gradient title + lede) -------- */

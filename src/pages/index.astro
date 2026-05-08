@@ -46,19 +46,19 @@ const featuredProjects = (await getCollection("projects", ({ data }) => !data.ar
     </div>
   </section>
 
-  <div class="section-title">
+  <div class="section-title reveal">
     <h2>Latest <span class="accented">posts</span></h2>
     <a href="/posts/">View all →</a>
   </div>
-  <div class="stack">
+  <div class="stack reveal">
     {recentPosts.map((post) => <PostCard post={post} />)}
   </div>
 
-  <div class="section-title">
+  <div class="section-title reveal">
     <h2>Selected <span class="accented">projects</span></h2>
     <a href="/projects/">View all →</a>
   </div>
-  <div class="grid-2">
+  <div class="grid-2 reveal">
     {featuredProjects.map((project) => <ProjectCard project={project} />)}
   </div>
 </Base>

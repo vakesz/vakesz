@@ -9,12 +9,13 @@ function isActive(href: string) {
 }
 ---
 
-<header class="site-header">
+<header class="site-header" transition:persist="site-header">
   <div class="wrap">
     <a class="brand" href="/">
       <span class="brand-name">vakesz.com</span>
     </a>
-    <nav aria-label="Primary">
+
+    <nav class="nav-desktop" aria-label="Primary">
       <ul>
         {
           NAV.map((item) => (
@@ -27,18 +28,61 @@ function isActive(href: string) {
         }
       </ul>
     </nav>
-    <a class="cta" href={`mailto:${SITE.email}`}>Get in touch</a>
-    <ThemeToggle />
+
+    <div class="header-actions">
+      <a class="cta" href={`mailto:${SITE.email}`}>Get in touch</a>
+      <ThemeToggle />
+      <button
+        type="button"
+        class="menu-toggle"
+        id="menu-toggle"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+      >
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+        <span class="bar" aria-hidden="true"></span>
+      </button>
+    </div>
   </div>
 </header>
+
+<nav
+  id="primary-nav"
+  class="nav-drawer"
+  aria-label="Mobile"
+  data-open="false"
+  transition:persist="primary-nav"
+>
+  <ul>
+    {
+      NAV.map((item) => (
+        <li>
+          <a href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+    <li class="drawer-cta">
+      <a href={`mailto:${SITE.email}`}>Get in touch →</a>
+    </li>
+  </ul>
+</nav>
+<div class="nav-scrim" data-open="false" aria-hidden="true" transition:persist="nav-scrim"></div>
+
+<script>
+  import "../scripts/nav";
+</script>
 
 <style>
   .site-header {
     border-bottom: 1px solid var(--border);
-    background: color-mix(in oklab, var(--bg) 85%, transparent);
+    background: color-mix(in oklab, var(--bg) 86%, transparent);
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 20;
     backdrop-filter: saturate(1.4) blur(10px);
     -webkit-backdrop-filter: saturate(1.4) blur(10px);
   }
@@ -58,6 +102,7 @@ function isActive(href: string) {
     color: var(--ink);
     text-decoration: none;
     letter-spacing: -0.01em;
+    min-width: 0;
   }
   .brand-name {
     font-size: 1rem;
@@ -65,17 +110,17 @@ function isActive(href: string) {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  nav {
+  .nav-desktop {
     margin-left: auto;
   }
-  nav ul {
+  .nav-desktop ul {
     display: flex;
-    gap: 1.2rem;
+    gap: 1.4rem;
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  nav a {
+  .nav-desktop a {
     color: var(--muted);
     text-decoration: none;
     font-size: 0.95rem;
@@ -85,12 +130,18 @@ function isActive(href: string) {
       color 150ms,
       border-color 150ms;
   }
-  nav a:hover {
+  .nav-desktop a:hover {
     color: var(--ink);
   }
-  nav a[aria-current="page"] {
+  .nav-desktop a[aria-current="page"] {
     color: var(--ink);
     border-bottom-color: var(--accent);
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
   .cta {
     display: inline-flex;
@@ -100,7 +151,7 @@ function isActive(href: string) {
     font-size: 0.88rem;
     font-weight: 500;
     color: #fff;
-    background-image: linear-gradient(135deg, var(--accent), var(--accent-2, #8b5cf6));
+    background-image: linear-gradient(135deg, var(--accent), var(--accent-2));
     border: 1px solid transparent;
     text-decoration: none;
     transition:
@@ -114,51 +165,148 @@ function isActive(href: string) {
     filter: brightness(1.05);
     box-shadow: 0 10px 28px -8px color-mix(in oklab, var(--accent) 70%, transparent);
   }
+
+  /* Hamburger button */
+  .menu-toggle {
+    display: none;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--ink);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    transition:
+      border-color 150ms,
+      background 150ms;
+  }
+  .menu-toggle:hover {
+    border-color: var(--accent);
+  }
+  .menu-toggle .bar {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+    transition:
+      transform 200ms ease,
+      opacity 150ms ease;
+  }
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* Drawer (rendered outside the header to avoid the backdrop-filter
+     containing-block trap) */
+  .nav-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(320px, 84vw);
+    background: var(--bg);
+    border-left: 1px solid var(--border);
+    box-shadow: -20px 0 60px -20px color-mix(in oklab, var(--accent) 35%, transparent);
+    padding: 4.5rem 1.5rem 2rem;
+    transform: translateX(100%);
+    transition: transform 240ms ease;
+    visibility: hidden;
+    z-index: 30;
+    overflow-y: auto;
+    display: none;
+  }
+  .nav-drawer[data-open="true"] {
+    transform: translateX(0);
+    visibility: visible;
+  }
+  .nav-drawer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .nav-drawer li + li {
+    border-top: 1px solid var(--border);
+  }
+  .nav-drawer a {
+    display: block;
+    font-size: 1.1rem;
+    padding: 0.95rem 0.25rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .nav-drawer a[aria-current="page"] {
+    color: var(--accent);
+  }
+  .nav-drawer .drawer-cta a {
+    color: var(--accent);
+  }
+
+  .nav-scrim {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: color-mix(in oklab, var(--ink) 35%, transparent);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    z-index: 28;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 200ms ease;
+  }
+  .nav-scrim[data-open="true"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
   @media (max-width: 720px) {
+    .nav-desktop {
+      display: none;
+    }
     .cta {
       display: none;
     }
+    .menu-toggle {
+      display: inline-flex;
+    }
+    .nav-drawer {
+      display: block;
+    }
+    .nav-scrim {
+      display: block;
+    }
+    .header-actions {
+      margin-left: auto;
+    }
+    :global(html[data-nav-open]) {
+      overflow: hidden;
+    }
   }
-  @media (max-width: 600px) {
+
+  @media (max-width: 420px) {
     .wrap {
-      padding: 0.75rem 1rem;
-      gap: 0.75rem;
-      flex-wrap: wrap;
+      padding: 0.7rem 1rem;
+      gap: 0.5rem;
     }
-    nav {
-      order: 3;
-      width: 100%;
-      margin-left: 0;
-    }
-    nav ul {
-      gap: 0.8rem;
-      overflow-x: auto;
-      padding-bottom: 0.1rem;
-      scrollbar-width: thin;
-    }
-    nav a {
-      font-size: 0.9rem;
-      white-space: nowrap;
+    .header-actions {
+      gap: 0.35rem;
     }
     .brand-name {
       font-size: 0.95rem;
-    }
-    :global(#theme-toggle) {
-      margin-left: auto;
-    }
-  }
-  @media (max-width: 420px) {
-    .wrap {
-      padding: 0.7rem 0.85rem;
-    }
-    nav ul {
-      gap: 0.65rem;
-    }
-    nav a {
-      font-size: 0.86rem;
-    }
-    .brand-name {
-      font-size: 0.9rem;
     }
   }
 </style>

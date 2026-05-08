@@ -635,6 +635,25 @@ html[data-theme="dark"] .astro-code span {
   border: 0;
 }
 
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: 0.5rem;
+  padding: 0.5rem 0.85rem;
+  background: var(--bg);
+  color: var(--ink);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  z-index: 100;
+  transform: translateY(-150%);
+  transition: transform 150ms ease;
+}
+.skip-link:focus-visible {
+  transform: translateY(0);
+  text-decoration: none;
+  outline: 2px solid var(--accent);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

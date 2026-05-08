@@ -111,6 +111,16 @@ const articleLd = article
   })();
 </script>
 
+<script is:inline>
+  // SPA swaps replace <html>, dropping data-theme. Forward it so the theme
+  // survives view transitions.
+  document.addEventListener("astro:before-swap", function (event) {
+    const live = document.documentElement;
+    const next = event.newDocument.documentElement;
+    if (live.dataset.theme) next.dataset.theme = live.dataset.theme;
+  });
+</script>
+
 {GA_ID && (
   <>
     <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>

@@ -1,3 +1,5 @@
+import { onPageReady } from "./lifecycle";
+
 type Theme = "light" | "dark";
 
 const STORAGE_KEY = "theme";
@@ -17,19 +19,20 @@ function applyTheme(theme: Theme) {
   try {
     localStorage.setItem(STORAGE_KEY, theme);
   } catch {
-    // localStorage may be unavailable (private mode, sandboxed iframe).
+    // private mode / sandboxed
   }
-  window.dispatchEvent(new CustomEvent<Theme>("themechange", { detail: theme }));
 }
 
-const button = document.getElementById(TOGGLE_ID);
-if (button) {
-  const sync = () => {
-    button.setAttribute(ARIA_PRESSED, currentTheme() === "dark" ? "true" : "false");
-  };
-  sync();
+function setup() {
+  const button = document.getElementById(TOGGLE_ID);
+  if (!button) return;
+  button.setAttribute(ARIA_PRESSED, currentTheme() === "dark" ? "true" : "false");
+  if (button.dataset.themeBound) return;
+  button.dataset.themeBound = "1";
   button.addEventListener("click", () => {
     applyTheme(otherTheme(currentTheme()));
-    sync();
+    button.setAttribute(ARIA_PRESSED, currentTheme() === "dark" ? "true" : "false");
   });
 }
+
+onPageReady(setup);

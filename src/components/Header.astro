@@ -1,12 +1,9 @@
 ---
 import { SITE, NAV } from "../consts";
+import { isActiveNav } from "../lib/nav";
 import ThemeToggle from "./ThemeToggle.astro";
 
 const path = Astro.url.pathname;
-function isActive(href: string) {
-  if (href === "/") return path === "/";
-  return path === href || path.startsWith(href);
-}
 ---
 
 <header class="site-header" transition:persist="site-header">
@@ -20,7 +17,7 @@ function isActive(href: string) {
         {
           NAV.map((item) => (
             <li>
-              <a href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
+              <a href={item.href} aria-current={isActiveNav(item.href, path) ? "page" : undefined}>
                 {item.label}
               </a>
             </li>
@@ -59,7 +56,7 @@ function isActive(href: string) {
     {
       NAV.map((item) => (
         <li>
-          <a href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>
+          <a href={item.href} aria-current={isActiveNav(item.href, path) ? "page" : undefined}>
             {item.label}
           </a>
         </li>
@@ -151,7 +148,7 @@ function isActive(href: string) {
     font-size: 0.88rem;
     font-weight: 500;
     color: #fff;
-    background-image: linear-gradient(135deg, var(--accent), var(--accent-2));
+    background-image: var(--gradient-brand);
     border: 1px solid transparent;
     text-decoration: none;
     transition:

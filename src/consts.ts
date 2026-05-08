@@ -7,7 +7,7 @@ export const SITE = {
   email: "hello@vakesz.com",
 } as const;
 
-export const rssLanguage = SITE.locale.replace("_", "-").toLowerCase();
+export const HTML_LANG = SITE.locale.replace("_", "-").toLowerCase();
 
 export const NAV = [
   { href: "/posts/", label: "Posts" },
@@ -23,6 +23,6 @@ export const SOCIAL = {
   youtube: "https://youtube.com/@vakeszqe",
 } as const;
 
-export const TWITTER_HANDLE = `@${new URL(SOCIAL.twitter).pathname.replace(/^\/+/, "").replace(/\/.*$/, "")}`;
+export const TWITTER_HANDLE = "@vakeszqe";
 
 export const GA_ID = "G-7FB5CVV3WZ";

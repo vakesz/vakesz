@@ -4,14 +4,9 @@ type Theme = "light" | "dark";
 
 const STORAGE_KEY = "theme";
 const TOGGLE_ID = "theme-toggle";
-const ARIA_PRESSED = "aria-pressed";
 
 function currentTheme(): Theme {
   return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
-}
-
-function otherTheme(theme: Theme): Theme {
-  return theme === "dark" ? "light" : "dark";
 }
 
 function applyTheme(theme: Theme) {
@@ -23,15 +18,19 @@ function applyTheme(theme: Theme) {
   }
 }
 
+function syncPressed(button: Element) {
+  button.setAttribute("aria-pressed", currentTheme() === "dark" ? "true" : "false");
+}
+
 function setup() {
   const button = document.getElementById(TOGGLE_ID);
   if (!button) return;
-  button.setAttribute(ARIA_PRESSED, currentTheme() === "dark" ? "true" : "false");
+  syncPressed(button);
   if (button.dataset.themeBound) return;
   button.dataset.themeBound = "1";
   button.addEventListener("click", () => {
-    applyTheme(otherTheme(currentTheme()));
-    button.setAttribute(ARIA_PRESSED, currentTheme() === "dark" ? "true" : "false");
+    applyTheme(currentTheme() === "dark" ? "light" : "dark");
+    syncPressed(button);
   });
 }
 

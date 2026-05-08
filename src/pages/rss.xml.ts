@@ -1,7 +1,7 @@
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 import type { APIContext } from "astro";
-import { SITE, rssLanguage } from "../consts";
+import { SITE, HTML_LANG } from "../consts";
 import { isPublished, byPubDateDesc } from "../lib/content";
 
 export async function GET(context: APIContext) {
@@ -18,6 +18,6 @@ export async function GET(context: APIContext) {
       link: `/posts/${post.id}/`,
       categories: post.data.tags,
     })),
-    customData: `<language>${rssLanguage}</language>`,
+    customData: `<language>${HTML_LANG}</language>`,
   });
 }

@@ -2,6 +2,7 @@
 // Active-link state is server-rendered per page, so re-apply aria-current
 // after every swap.
 import { onPageReady } from "./lifecycle";
+import { isActiveNav } from "../lib/nav";
 
 const MOBILE_QUERY = "(max-width: 720px)";
 
@@ -52,8 +53,7 @@ function syncActive() {
   const links = document.querySelectorAll<HTMLAnchorElement>(".nav-desktop a, #primary-nav a");
   links.forEach((a) => {
     const href = a.getAttribute("href") ?? "";
-    const active = href === "/" ? path === "/" : path === href || path.startsWith(href);
-    if (active) a.setAttribute("aria-current", "page");
+    if (isActiveNav(href, path)) a.setAttribute("aria-current", "page");
     else a.removeAttribute("aria-current");
   });
 }

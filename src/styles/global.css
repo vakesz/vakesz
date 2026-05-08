@@ -44,6 +44,10 @@ html[data-theme="dark"] {
   --selection: rgba(219, 39, 119, 0.28);
 }
 
+:root {
+  --gradient-brand: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+
 /* -------- base -------- */
 *,
 *::before,
@@ -363,19 +367,6 @@ html[data-theme="dark"] .astro-code span {
   opacity: 1;
 }
 
-.page-header {
-  margin-bottom: 2rem;
-}
-.page-header h1 {
-  margin: 0 0 0.6rem;
-}
-.page-header .lede {
-  font-size: 1.1rem;
-  color: var(--muted);
-  line-height: 1.55;
-  margin: 0;
-}
-
 /* -------- page-hero (shared eyebrow + gradient title + lede) -------- */
 .page-hero {
   position: relative;
@@ -433,7 +424,7 @@ html[data-theme="dark"] .astro-code span {
 
 /* Reusable gradient word utility */
 .gradient {
-  background-image: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background-image: var(--gradient-brand);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -496,8 +487,6 @@ html[data-theme="dark"] .astro-code span {
     margin: 0.35rem 0 0.65rem;
     font-size: 0.92rem;
   }
-}
-@media (max-width: 640px) {
   .grid-2 {
     grid-template-columns: 1fr;
   }
@@ -533,13 +522,6 @@ html[data-theme="dark"] .astro-code span {
   color: var(--ink);
   margin: 0;
   font-weight: 700;
-}
-.section-title h2 .accented,
-.section-title h2 .gradient {
-  background-image: linear-gradient(135deg, var(--accent), var(--accent-2));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
 }
 .section-title a {
   font-size: 0.85rem;
@@ -611,7 +593,7 @@ html[data-theme="dark"] .astro-code span {
 }
 .btn-primary {
   color: #fff;
-  background-image: linear-gradient(135deg, var(--accent), var(--accent-2));
+  background-image: var(--gradient-brand);
   border-color: transparent;
   box-shadow: 0 10px 24px -12px color-mix(in oklab, var(--accent) 70%, transparent);
 }
@@ -655,6 +637,7 @@ html[data-theme="dark"] .astro-code span {
 }
 
 /* -------- reveal-on-scroll -------- */
+
 .reveal {
   opacity: 0;
   transform: translateY(14px);
@@ -681,14 +664,4 @@ html[data-theme="dark"] .astro-code span {
     opacity: 1 !important;
     transform: none !important;
   }
-}
-
-.contact {
-  list-style: none;
-  padding: 0;
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-}
-.contact li {
-  margin: 0.3rem 0;
 }

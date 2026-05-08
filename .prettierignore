@@ -1,7 +1,6 @@
 dist/
 node_modules/
 .astro/
-public/pagefind/
 bun.lock
 
 # prettier-plugin-astro can't parse `<script is:inline define:vars={...}>` blocks

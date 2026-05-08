@@ -5,8 +5,6 @@ import YouTube from "../../components/YouTube.astro";
 import PostFooter from "../../components/PostFooter.astro";
 import { isPublished, siblingPosts } from "../../lib/content";
 
-const mdxComponents = { YouTube };
-
 export async function getStaticPaths() {
   const posts = await getCollection("posts", isPublished);
   return posts.map((post) => ({
@@ -31,6 +29,6 @@ const { prev, next } = siblingPosts(posts, post);
   cover={post.data.cover}
   minutesRead={minutesRead}
 >
-  <Content components={mdxComponents} />
+  <Content components={{ YouTube }} />
   <PostFooter prev={prev} next={next} slot="after" />
 </Post>

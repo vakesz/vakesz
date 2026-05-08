@@ -1,0 +1,110 @@
+# Pages CMS — https://pagescms.org/docs/
+# Edit this site at https://app.pagescms.org after installing the GitHub app.
+
+media:
+  # Default media folder for in-body images. Stored under /img/, written
+  # into content as absolute URLs (e.g. /img/foo.webp).
+  - name: content
+    label: Content images
+    input: public/img
+    output: /img
+    categories: [image]
+
+  # Cover images go through Astro's image() pipeline for AVIF/WebP +
+  # responsive widths. Written as relative paths from src/content/posts
+  # (../../assets/covers/foo.webp) so image() can resolve them.
+  - name: covers
+    label: Post covers
+    input: src/assets/covers
+    output: ../../assets/covers
+    categories: [image]
+
+content:
+  - name: posts
+    label: Posts
+    type: collection
+    path: src/content/posts
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields: [title, pubDate, draft, tags]
+      primary: title
+      sort: [pubDate, title, draft]
+      default:
+        sort: pubDate
+        order: desc
+    fields:
+      - { name: title, type: string, required: true }
+      - { name: description, type: text, required: true, options: { maxlength: 300 } }
+      - { name: pubDate, label: Published, type: date, required: true }
+      - { name: updatedDate, label: Updated, type: date }
+      - { name: draft, type: boolean, default: false }
+      - { name: tags, type: string, list: true }
+      - name: cover
+        label: Cover image
+        type: object
+        fields:
+          - { name: src, label: Image, type: image, options: { media: covers } }
+          - { name: alt, label: Alt text, type: string, required: true }
+          - { name: caption, type: string }
+      - { name: body, label: Body, type: rich-text }
+
+  - name: projects
+    label: Projects
+    type: collection
+    path: src/content/projects
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields: [title, pinned, archived, order]
+      primary: title
+      sort: [order, title, pinned, archived]
+      default:
+        sort: order
+        order: asc
+    fields:
+      - { name: title, type: string, required: true }
+      - { name: description, type: text, required: true }
+      - name: repo
+        label: Repository URL
+        type: string
+        pattern:
+          regex: "^https?://"
+          message: Must start with http(s)://
+      - name: homepage
+        label: Live URL
+        type: string
+        pattern:
+          regex: "^https?://"
+          message: Must start with http(s)://
+      - { name: stack, type: string, list: true }
+      - { name: pinned, type: boolean, default: false }
+      - { name: archived, type: boolean, default: false }
+      - { name: order, type: number, default: 0 }
+      - { name: body, label: Body, type: rich-text }
+
+  - name: about
+    label: About page
+    type: file
+    path: src/content/pages/about.mdx
+    format: yaml-frontmatter
+    fields:
+      - { name: eyebrow, type: string }
+      - {
+          name: title,
+          type: string,
+          required: true,
+          description: "Trailing space + titleAccent renders as 'A bit about me.'",
+        }
+      - { name: titleAccent, label: Title accent, type: string }
+      - { name: description, type: text, description: "Used for the page <meta description>." }
+      - { name: lede, type: text }
+      - { name: body, label: Body, type: rich-text }
+
+settings:
+  commit:
+    templates:
+      create: "content: add {filename}"
+      update: "content: update {filename}"
+      delete: "content: remove {filename}"
+      rename: "content: rename {oldFilename} → {newFilename}"

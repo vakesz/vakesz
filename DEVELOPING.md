@@ -32,12 +32,40 @@ bun run format:check  # prettier --check (used in CI)
 
 - Posts live in `src/content/posts/` (Markdown or MDX).
 - Projects in `src/content/projects/`.
+- Editable page bodies in `src/content/pages/` (currently: `about.mdx`).
 - Schemas in `src/content.config.ts`.
-- Local cover images go in `src/assets/covers/` and are referenced
-  relatively (`../../assets/covers/foo.webp`); remote URLs are also valid.
+- Cover images go in `src/assets/covers/` (referenced as
+  `../../assets/covers/foo.webp` so Astro `image()` produces responsive
+  AVIF/WebP). Body images go in `public/img/` and are referenced as
+  `/img/foo.webp`. Remote URLs work too.
 - To publish a draft: flip `draft: false` (or remove the line) and push.
 - To schedule: set `pubDate` to a future date — it'll appear after the
   next build on/after that date.
+
+## Editing via Pages CMS
+
+Posts, projects, and the about page are wired up to
+[Pages CMS](https://pagescms.org) via `.pages.yml` at the repo root.
+
+1. Visit [app.pagescms.org](https://app.pagescms.org) and sign in with GitHub.
+2. Install the Pages CMS GitHub App on this repo (read/write contents).
+3. Pick `vakesz/vakesz` from the project list.
+
+What's editable:
+
+- **Posts** — list view sorted by `pubDate desc`, full frontmatter and body.
+- **Projects** — same, sorted by `order`.
+- **About page** — single-file editor for `src/content/pages/about.mdx`.
+
+Image uploads use one of two media folders:
+
+- `content` (`public/img/`) — default for in-body images, written as
+  `/img/...` paths.
+- `covers` (`src/assets/covers/`) — wired to the post `cover.src` field,
+  written as `../../assets/covers/...` so Astro optimizes them.
+
+Pages CMS commits straight to `main`; the GitHub Pages workflow deploys
+on every push, so changes are usually live within a couple of minutes.
 
 ## Deploy
 

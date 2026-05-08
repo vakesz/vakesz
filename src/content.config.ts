@@ -14,7 +14,9 @@ const posts = defineCollection({
       tags: z.array(z.string()).default([]),
       cover: z
         .object({
-          src: z.union([image(), z.url()]),
+          // image() resolves relative paths under src/assets for optimization;
+          // string accepts absolute /img/... paths and remote URLs.
+          src: z.union([image(), z.string()]),
           alt: z.string(),
           caption: z.string().optional(),
         })
@@ -36,4 +38,15 @@ const projects = defineCollection({
   }),
 });
 
-export const collections = { posts, projects };
+const pages = defineCollection({
+  loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/pages" }),
+  schema: z.object({
+    title: z.string(),
+    eyebrow: z.string().optional(),
+    titleAccent: z.string().optional(),
+    description: z.string().optional(),
+    lede: z.string().optional(),
+  }),
+});
+
+export const collections = { posts, projects, pages };

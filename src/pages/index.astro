@@ -16,7 +16,7 @@ const featuredProjects = (await getCollection("projects", ({ data }) => !data.ar
   .slice(0, 4);
 ---
 
-<Base title={SITE.title} description={SITE.description} wide>
+<Base title={SITE.title} description={SITE.description}>
   <section class="hero">
     <div class="hero-copy">
       <h1>Hello, I'm <span class="gradient">Gábor.</span></h1>

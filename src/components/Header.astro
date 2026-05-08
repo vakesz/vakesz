@@ -9,7 +9,11 @@ const path = Astro.url.pathname;
 <header class="site-header" transition:persist="site-header">
   <div class="wrap">
     <a class="brand" href="/">
-      <span class="brand-name">vakesz.com</span>
+      <img class="brand-mark" src="/apple-touch-icon.png" alt="" width="28" height="28" />
+      <span class="brand-text">
+        <span class="brand-name">vakesz.com</span>
+        <span class="brand-tag">{SITE.jobTitle}</span>
+      </span>
     </a>
 
     <nav class="nav-desktop" aria-label="Primary">
@@ -94,18 +98,47 @@ const path = Astro.url.pathname;
   .brand {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.55rem;
     font-weight: 600;
     color: var(--ink);
     text-decoration: none;
     letter-spacing: -0.01em;
     min-width: 0;
   }
+  .brand-mark {
+    flex: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: block;
+  }
+  .brand-text {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1;
+    min-width: 0;
+  }
   .brand-name {
     font-size: 1rem;
+    line-height: 1.1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+  .brand-tag {
+    margin-top: 2px;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
   }
   .nav-desktop {
     margin-left: auto;

@@ -37,11 +37,11 @@ html[data-theme="dark"] {
   --border: #27272a;
   --card-bg: #121215;
   --muted-bg: #18181b;
-  --accent: #db2777;
-  --accent-2: #be185d;
-  --accent-soft: rgba(219, 39, 119, 0.14);
+  --accent: #ec4899;
+  --accent-2: #db2777;
+  --accent-soft: rgba(236, 72, 153, 0.14);
   --code-bg: #18181b;
-  --selection: rgba(219, 39, 119, 0.28);
+  --selection: rgba(236, 72, 153, 0.28);
 }
 
 :root {

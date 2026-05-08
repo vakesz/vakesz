@@ -14,6 +14,7 @@ interface Props {
   tags?: string[];
   cover?: { src: ImageMetadata | string; alt: string; caption?: string };
   minutesRead?: number;
+  wordCount?: number;
 }
 
 const {
@@ -25,6 +26,7 @@ const {
   tags = [],
   cover,
   minutesRead,
+  wordCount,
 } = Astro.props;
 
 const coverOg = typeof cover?.src === "string" ? cover.src : cover?.src.src;
@@ -39,6 +41,7 @@ const ogImage = coverOg ?? `/og/${slug}.png`;
   pubDate={pubDate}
   updatedDate={updatedDate}
   tags={tags}
+  wordCount={wordCount}
 >
   <article class="prose post">
     <header class="post-header page-hero">

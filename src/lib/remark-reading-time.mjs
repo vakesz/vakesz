@@ -4,7 +4,8 @@ import { toString } from "mdast-util-to-string";
 export function remarkReadingTime() {
   return (tree, { data }) => {
     const text = toString(tree);
-    const { minutes } = getReadingTime(text);
+    const { minutes, words } = getReadingTime(text);
     data.astro.frontmatter.minutesRead = Math.max(1, Math.round(minutes));
+    data.astro.frontmatter.wordCount = words;
   };
 }

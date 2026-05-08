@@ -16,6 +16,7 @@ export async function getStaticPaths() {
 const { post, posts } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await render(post);
 const minutesRead = remarkPluginFrontmatter?.minutesRead as number | undefined;
+const wordCount = remarkPluginFrontmatter?.wordCount as number | undefined;
 const { prev, next } = siblingPosts(posts, post);
 ---
 
@@ -28,6 +29,7 @@ const { prev, next } = siblingPosts(posts, post);
   tags={post.data.tags}
   cover={post.data.cover}
   minutesRead={minutesRead}
+  wordCount={wordCount}
 >
   <Content components={{ YouTube }} />
   <PostFooter prev={prev} next={next} slot="after" />

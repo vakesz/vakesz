@@ -9,6 +9,7 @@ interface Props {
   pubDate?: Date;
   updatedDate?: Date;
   tags?: string[];
+  wordCount?: number;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   pubDate,
   updatedDate,
   tags = [],
+  wordCount,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
@@ -31,6 +33,13 @@ const personLd = {
   name: SITE.author,
   url: Astro.site?.toString(),
   email: `mailto:${SITE.email}`,
+  jobTitle: SITE.jobTitle,
+  description: SITE.description,
+  worksFor: {
+    "@type": "Organization",
+    name: SITE.employer,
+    url: SITE.employerUrl,
+  },
   sameAs: [SOCIAL.github, SOCIAL.twitter, SOCIAL.linkedin, SOCIAL.youtube, SOCIAL.instagram],
 };
 
@@ -45,6 +54,9 @@ const articleLd = article
       datePublished: pubDate?.toISOString(),
       dateModified: (updatedDate ?? pubDate)?.toISOString(),
       keywords: tags.join(", "),
+      ...(tags.length > 0 ? { articleSection: tags[0] } : {}),
+      ...(wordCount ? { wordCount } : {}),
+      inLanguage: SITE.locale.split("_")[0],
       mainEntityOfPage: { "@type": "WebPage", "@id": canonical },
       author: { "@type": "Person", name: SITE.author, url: Astro.site?.toString() },
       publisher: { "@type": "Person", name: SITE.author, url: Astro.site?.toString() },

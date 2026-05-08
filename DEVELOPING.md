@@ -64,9 +64,17 @@ Image uploads use one of two media folders:
 - `covers` (`src/assets/covers/`) — wired to the post `cover.src` field,
   written as `../../assets/covers/...` so Astro optimizes them.
 
-Pages CMS commits straight to `main`; the GitHub Pages workflow deploys
-on every push, so changes are usually live within a couple of minutes.
+Pages CMS commits straight to `main`; Cloudflare Pages rebuilds on every
+push, so changes are usually live within a couple of minutes.
 
 ## Deploy
 
-Pushes to `main` deploy to GitHub Pages via `.github/workflows/deploy.yml`.
+Hosted on Cloudflare Pages. Pushes to `main` trigger a build; the project
+is configured with:
+
+- Build command: `bun run typecheck && bun run format:check && bun run build`
+- Build output: `dist`
+- Node version: `22`
+
+Response headers and cache rules live in `public/_headers` (copied to the
+site root at build time).

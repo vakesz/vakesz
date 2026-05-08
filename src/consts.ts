@@ -3,6 +3,9 @@ export const SITE = {
   description:
     "Software engineer at Sigma Technology. Backend systems, developer tooling, and occasionally things with wheels.",
   author: "Gabor Pinkova",
+  jobTitle: "Software Engineer",
+  employer: "Sigma Technology",
+  employerUrl: "https://sigmatechnology.com",
   locale: "en_US",
   email: "hello@vakesz.com",
 } as const;

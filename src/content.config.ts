@@ -11,7 +11,9 @@ const posts = defineCollection({
       pubDate: z.coerce.date(),
       updatedDate: z.coerce.date().optional(),
       draft: z.boolean().default(false),
-      tags: z.array(z.string()).default([]),
+      // Normalize so casing/whitespace can't split a tag into duplicates
+      // between the tag index (counts raw) and tag pages (group by slug).
+      tags: z.array(z.string().trim().toLowerCase()).default([]),
       cover: z
         .object({
           // image() resolves relative paths under src/assets for optimization;

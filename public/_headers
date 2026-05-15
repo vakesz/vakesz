@@ -1,3 +1,8 @@
+# The two script-src sha256 hashes are the inline scripts in
+# src/components/BaseHead.astro (theme init + view-transition theme
+# forwarder). If you edit either inline script, regenerate the hashes.
+# static.cloudflareinsights.com / cloudflareinsights.com are allowed so
+# Cloudflare Web Analytics works once enabled in the dashboard.
 /*
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
@@ -5,6 +10,7 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' https: data:; font-src 'self'; style-src 'self' 'unsafe-inline'; frame-src https://www.youtube-nocookie.com; connect-src 'self' https://cloudflareinsights.com; script-src 'self' 'sha256-XhHecs890QqeJAag9Tmh7LFpabm0tD9hLVa1HhIWNHQ=' 'sha256-GkmpaKC3on2//6WwAXY9w9s7JSyL/BmWZu7bJQfynJM=' https://static.cloudflareinsights.com
 
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable

@@ -14,19 +14,29 @@ function bindNav() {
   if (btn.dataset.navBound) return;
   btn.dataset.navBound = "1";
 
+  let lastFocused: HTMLElement | null = null;
+  const isOpen = () => btn.getAttribute("aria-expanded") === "true";
+  const focusables = () => Array.from(nav.querySelectorAll<HTMLElement>("a[href]"));
+
   const close = () => {
+    if (!isOpen()) return;
     btn.setAttribute("aria-expanded", "false");
     nav.setAttribute("data-open", "false");
     scrim?.setAttribute("data-open", "false");
     document.documentElement.removeAttribute("data-nav-open");
+    // Return focus to whatever opened the drawer (the toggle button).
+    lastFocused?.focus();
+    lastFocused = null;
   };
   const open = () => {
+    lastFocused = document.activeElement as HTMLElement | null;
     btn.setAttribute("aria-expanded", "true");
     nav.setAttribute("data-open", "true");
     scrim?.setAttribute("data-open", "true");
     document.documentElement.setAttribute("data-nav-open", "");
+    focusables()[0]?.focus();
   };
-  const toggle = () => (btn.getAttribute("aria-expanded") === "true" ? close() : open());
+  const toggle = () => (isOpen() ? close() : open());
 
   btn.addEventListener("click", toggle);
   scrim?.addEventListener("click", close);
@@ -36,8 +46,29 @@ function bindNav() {
     if (target instanceof HTMLElement && target.closest("a")) close();
   });
 
+  // Escape closes; Tab is trapped inside the drawer while it is open.
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") close();
+    if (!isOpen()) return;
+    if (e.key === "Escape") {
+      close();
+      return;
+    }
+    if (e.key !== "Tab") return;
+    const items = focusables();
+    if (items.length === 0) return;
+    const first = items[0];
+    const last = items[items.length - 1];
+    const active = document.activeElement;
+    if (e.shiftKey && active === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && active === last) {
+      e.preventDefault();
+      first.focus();
+    } else if (active instanceof Node && !nav.contains(active)) {
+      e.preventDefault();
+      first.focus();
+    }
   });
 
   const mq = window.matchMedia(MOBILE_QUERY);

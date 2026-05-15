@@ -71,13 +71,21 @@ if (includeRss) {
   {
     links.map((l) => {
       const icon = icons[l.id];
+      const isMail = l.id === "mail";
+      const isIdentity = !isMail && l.id !== "rss";
+      // Identity links get rel="me" for IndieWeb verification; every
+      // outbound link opens in a new tab with a hardened rel.
+      let rel: string | undefined;
+      if (isIdentity) rel = "me noopener noreferrer";
+      else if (!isMail) rel = "noopener noreferrer";
       return (
         <li>
           <a
             href={l.href}
             aria-label={l.name}
             title={l.name}
-            rel={l.id === "mail" ? undefined : "me"}
+            target={isMail ? undefined : "_blank"}
+            rel={rel}
           >
             <svg
               viewBox="0 0 24 24"

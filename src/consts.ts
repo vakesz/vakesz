@@ -27,5 +27,3 @@ export const SOCIAL = {
 } as const;
 
 export const TWITTER_HANDLE = "@vakeszqe";
-
-export const GA_ID = "G-7FB5CVV3WZ";

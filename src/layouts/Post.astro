@@ -79,7 +79,13 @@ const ogImage = coverOg ?? `/og/${slug}.png`;
       cover && (
         <figure class="cover">
           {typeof cover.src === "string" ? (
-            <img src={cover.src} alt={cover.alt} loading="eager" decoding="async" />
+            <img
+              class="cover-raw"
+              src={cover.src}
+              alt={cover.alt}
+              loading="eager"
+              decoding="async"
+            />
           ) : (
             <Picture
               src={cover.src}
@@ -142,6 +148,11 @@ const ogImage = coverOg ?? `/og/${slug}.png`;
     height: auto;
     border-radius: var(--radius);
     border: 1px solid var(--border);
+  }
+  .cover :global(img.cover-raw) {
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
   }
   .cover figcaption {
     margin-top: 0.5rem;

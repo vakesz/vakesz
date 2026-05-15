@@ -36,14 +36,14 @@ const { title, description, repo, homepage, stack = [], archived } = Astro.props
       <div class="actions">
         {
           repo && (
-            <a class="btn" href={repo}>
+            <a class="btn" href={repo} target="_blank" rel="noopener noreferrer">
               Source ↗
             </a>
           )
         }
         {
           homepage && (
-            <a class="btn btn-primary" href={homepage}>
+            <a class="btn btn-primary" href={homepage} target="_blank" rel="noopener noreferrer">
               Live ↗
             </a>
           )

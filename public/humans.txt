@@ -9,7 +9,7 @@
   Last update: 2026/05
   Standards: HTML5, CSS, semantic markup
   Components: Astro, MDX
-  Software: Bun, Prettier
+  Software: pnpm, Prettier
   Hosting: Cloudflare Pages
   Source: https://github.com/vakesz/vakesz
   Type: Static site (no tracking, no cookies, no consent banners)

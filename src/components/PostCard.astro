@@ -7,24 +7,25 @@ interface Props {
 }
 const { post } = Astro.props;
 const href = `/posts/${post.id}/`;
+const titleId = `post-${post.id}-title`;
+const tags = post.data.tags.slice(0, 3);
 ---
 
-<a class="card post-card" href={href}>
-  <h3 class="title">{post.data.title}</h3>
+<a class="card post-card" href={href} aria-labelledby={titleId}>
+  <h3 class="title" id={titleId}>{post.data.title}</h3>
   <p class="desc">{post.data.description}</p>
   <div class="meta">
     <FormattedDate date={post.data.pubDate} short />
     {
-      post.data.tags.length > 0 && (
+      tags.length > 0 && (
         <>
           <span class="dot" aria-hidden="true">
             ·
           </span>
           <span class="tags">
-            {post.data.tags
-              .slice(0, 3)
-              .map((t) => `#${t}`)
-              .join("  ")}
+            {tags.map((t) => (
+              <span class="tag">#{t}</span>
+            ))}
           </span>
         </>
       )
@@ -47,8 +48,14 @@ const href = `/posts/${post.id}/`;
     font-family: var(--font-mono);
   }
   .tags {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.6rem;
     letter-spacing: 0.01em;
-    overflow-wrap: anywhere;
+    min-width: 0;
+  }
+  .tag {
+    white-space: nowrap;
   }
   @media (max-width: 640px) {
     .meta {

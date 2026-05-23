@@ -83,8 +83,11 @@ const ogImage = coverOg ?? `/og/${slug}.png`;
               class="cover-raw"
               src={cover.src}
               alt={cover.alt}
+              width="1280"
+              height="720"
               loading="eager"
               decoding="async"
+              fetchpriority="high"
             />
           ) : (
             <Picture
@@ -124,6 +127,10 @@ const ogImage = coverOg ?? `/og/${slug}.png`;
 </Base>
 
 <style>
+  .post {
+    /* Cover bleeds 0.5rem either side; contain any other accidental overflow. */
+    overflow-x: clip;
+  }
   .post-header {
     margin-bottom: 1.25rem;
   }

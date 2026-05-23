@@ -11,7 +11,7 @@ const path = Astro.url.pathname;
     <a class="brand" href="/">
       <img class="brand-mark" src="/apple-touch-icon.png" alt="" width="28" height="28" />
       <span class="brand-text">
-        <span class="brand-name">vakesz.com</span>
+        <span class="brand-name" translate="no">vakesz.com</span>
         <span class="brand-tag">{SITE.jobTitle}</span>
       </span>
     </a>
@@ -90,7 +90,8 @@ const path = Astro.url.pathname;
   .wrap {
     max-width: var(--content-wide);
     margin: 0 auto;
-    padding: 0.85rem 1.25rem;
+    padding: 0.85rem max(1.25rem, env(safe-area-inset-right)) 0.85rem
+      max(1.25rem, env(safe-area-inset-left));
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -111,6 +112,8 @@ const path = Astro.url.pathname;
     height: 28px;
     border-radius: 6px;
     display: block;
+    /* drop-shadow follows the PNG's alpha so corners stay rounded, unlike box-shadow. */
+    filter: drop-shadow(0 1px 2px color-mix(in oklab, var(--ink) 28%, transparent));
   }
   .brand-text {
     display: inline-flex;
@@ -211,6 +214,7 @@ const path = Astro.url.pathname;
     flex-direction: column;
     gap: 4px;
     cursor: pointer;
+    touch-action: manipulation;
     transition:
       border-color 150ms,
       background 150ms;
@@ -249,17 +253,22 @@ const path = Astro.url.pathname;
     background: var(--bg);
     border-left: 1px solid var(--border);
     box-shadow: -20px 0 60px -20px color-mix(in oklab, var(--accent) 35%, transparent);
-    padding: 4.5rem 1.5rem 2rem;
+    padding: 4.5rem 1.5rem max(2rem, env(safe-area-inset-bottom));
     transform: translateX(100%);
-    transition: transform 240ms ease;
+    /* Delay visibility flip until the slide-out finishes. */
+    transition:
+      transform 240ms ease,
+      visibility 0s linear 240ms;
     visibility: hidden;
     z-index: 30;
     overflow-y: auto;
+    overscroll-behavior: contain;
     display: none;
   }
   .nav-drawer[data-open="true"] {
     transform: translateX(0);
     visibility: visible;
+    transition: transform 240ms ease;
   }
   .nav-drawer ul {
     list-style: none;

@@ -80,13 +80,7 @@ if (includeRss) {
       else if (!isMail) rel = "noopener noreferrer";
       return (
         <li>
-          <a
-            href={l.href}
-            aria-label={l.name}
-            title={l.name}
-            target={isMail ? undefined : "_blank"}
-            rel={rel}
-          >
+          <a href={l.href} aria-label={l.name} target={isMail ? undefined : "_blank"} rel={rel}>
             <svg
               viewBox="0 0 24 24"
               width="18"

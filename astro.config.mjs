@@ -3,6 +3,7 @@ import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import remarkSmartypants from "remark-smartypants";
 import { remarkReadingTime } from "./src/lib/remark-reading-time.mjs";
 import { transformerCodeMeta } from "./src/lib/shiki-transformers.mjs";
 
@@ -14,7 +15,7 @@ export default defineConfig({
     defaultStrategy: "hover",
   },
   markdown: {
-    remarkPlugins: [remarkReadingTime],
+    remarkPlugins: [remarkReadingTime, [remarkSmartypants, { dashes: false }]],
     rehypePlugins: [
       rehypeSlug,
       [

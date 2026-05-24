@@ -3,14 +3,17 @@ import type { CollectionEntry } from "astro:content";
 
 interface Props {
   project: CollectionEntry<"projects">;
+  headingLevel?: 2 | 3;
 }
-const { project } = Astro.props;
+const { project, headingLevel = 3 } = Astro.props;
 const href = `/projects/${project.id}/`;
+const Heading = `h${headingLevel}` as const;
+const titleId = `project-${project.id}-title`;
 ---
 
-<a class="card project-card" href={href}>
+<a class="card project-card" href={href} aria-labelledby={titleId}>
   <div class="row">
-    <h3 class="title">{project.data.title}</h3>
+    <Heading class="title" id={titleId}>{project.data.title}</Heading>
     {
       project.data.pinned && (
         <span class="pinned" aria-label="Pinned">

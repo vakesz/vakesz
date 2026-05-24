@@ -379,26 +379,6 @@ html[data-theme="dark"] .astro-code span {
 .page-hero.center {
   text-align: center;
 }
-.page-hero .glow {
-  position: absolute;
-  inset: -2rem -10% auto -10%;
-  height: 240px;
-  background:
-    radial-gradient(
-      40% 60% at 30% 40%,
-      color-mix(in oklab, var(--accent) 16%, transparent),
-      transparent 70%
-    ),
-    radial-gradient(
-      35% 55% at 80% 60%,
-      color-mix(in oklab, var(--accent-2) 16%, transparent),
-      transparent 70%
-    );
-  filter: blur(40px);
-  z-index: -1;
-  opacity: 0.8;
-  pointer-events: none;
-}
 .page-hero .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -566,7 +546,7 @@ html[data-theme="dark"] .astro-code span {
   align-items: center;
   gap: 0.45rem;
   padding: 0.6rem 1.1rem;
-  min-height: 40px;
+  min-height: 44px;
   border: 1px solid var(--border);
   border-radius: 999px;
   background: transparent;
@@ -645,8 +625,8 @@ html[data-theme="dark"] .astro-code span {
   opacity: 0;
   transform: translateY(14px);
   transition:
-    opacity 600ms ease,
-    transform 600ms ease;
+    opacity 240ms ease,
+    transform 240ms ease;
 }
 .reveal.is-visible {
   opacity: 1;

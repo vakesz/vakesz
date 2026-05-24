@@ -17,6 +17,6 @@ const projects = (await getCollection("projects")).sort(byPinnedThenOrder);
   />
 
   <div class="grid-2">
-    {projects.map((project) => <ProjectCard project={project} />)}
+    {projects.map((project) => <ProjectCard project={project} headingLevel={2} />)}
   </div>
 </Base>

@@ -10,7 +10,6 @@ const { eyebrow, title, accented, lede, align = "left" } = Astro.props;
 ---
 
 <header class:list={["page-hero", align]}>
-  <div class="glow" aria-hidden="true"></div>
   {eyebrow && <p class="eyebrow">{eyebrow}</p>}
   <h1>
     {

@@ -1,4 +1,13 @@
 const RESET_DELAY_MS = 1400;
+const DEFAULT_LABEL = "Copy";
+
+function setLabel(button: HTMLButtonElement, label: string) {
+  if (button.firstChild) {
+    button.firstChild.textContent = label;
+  } else {
+    button.textContent = label;
+  }
+}
 
 async function onClick(event: Event) {
   const target = event.target as HTMLElement | null;
@@ -11,14 +20,14 @@ async function onClick(event: Event) {
 
   try {
     await navigator.clipboard.writeText(text);
-    button.textContent = "Copied";
+    setLabel(button, "Copied");
     button.classList.add("copied");
   } catch {
-    button.textContent = "Failed";
+    setLabel(button, "Failed");
   }
 
   setTimeout(() => {
-    button.textContent = "Copy";
+    setLabel(button, DEFAULT_LABEL);
     button.classList.remove("copied");
   }, RESET_DELAY_MS);
 }

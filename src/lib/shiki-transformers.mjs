@@ -30,9 +30,17 @@ export function transformerCodeMeta() {
             properties: {
               type: "button",
               className: ["code-copy"],
-              "aria-label": "Copy code",
+              "aria-live": "polite",
             },
-            children: [{ type: "text", value: "Copy" }],
+            children: [
+              { type: "text", value: "Copy" },
+              {
+                type: "element",
+                tagName: "span",
+                properties: { className: ["sr-only"] },
+                children: [{ type: "text", value: " code" }],
+              },
+            ],
           },
         ],
       };

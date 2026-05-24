@@ -1,12 +1,18 @@
 ---
 title: "Dotfiles"
-description: "Personal shell, editor, and workstation setup. The canonical way I bring up a new machine."
+description: "macOS-first dotfiles with Linux and WSL support, managed with GNU Stow, XDG-friendly config, a Brewfile, and platform setup scripts."
 repo: "https://github.com/vakesz/dotfiles"
 stack: ["Shell", "zsh"]
 order: 40
 ---
 
-The usual: shell config, editor settings, tmux, and a few install scripts
-for setting up a new machine without remembering every step from scratch.
+My personal workstation baseline for macOS, with Linux and WSL support:
+zsh, Starship, Git, Ghostty, fd, ripgrep, tealdeer, topgrade, and the
+small bits of shell environment that make a fresh machine feel familiar.
 
-Not intended as a "framework" - just what works for me.
+The repo is organized around GNU Stow and the XDG base directory layout:
+`home/` gets linked into `$HOME`, `config/` gets linked into
+`$XDG_CONFIG_HOME`, and `bootstrap.sh` is the single entrypoint for
+restowing everything. The macOS layer includes a Brewfile, defaults,
+keyboard and power tweaks, plus an optional script for pushing Microsoft
+app updates through topgrade instead of their own auto-updaters.

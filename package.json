@@ -14,6 +14,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "typecheck": "astro check",
+    "deploy:check": "pnpm typecheck && pnpm format:check && pnpm build",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "astro": "astro"

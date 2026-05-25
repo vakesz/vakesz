@@ -8,7 +8,7 @@
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
-  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Strict-Transport-Security: max-age=15552000; includeSubDomains; preload
   Cross-Origin-Opener-Policy: same-origin
   Content-Security-Policy: default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' https: data:; font-src 'self'; style-src 'self' 'unsafe-inline'; frame-src https://www.youtube-nocookie.com; connect-src 'self' https://cloudflareinsights.com; script-src 'self' 'sha256-XhHecs890QqeJAag9Tmh7LFpabm0tD9hLVa1HhIWNHQ=' 'sha256-GkmpaKC3on2//6WwAXY9w9s7JSyL/BmWZu7bJQfynJM=' https://static.cloudflareinsights.com
 

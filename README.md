@@ -35,7 +35,7 @@ I write about what I'm working on at **[vakesz.com](https://vakesz.com)**.
 ### Find me
 
 - [hello@vakesz.com](mailto:hello@vakesz.com)
-- [@vakeszqe](https://twitter.com/vakeszqe) on Twitter / X
+- [@vakesz](https://twitter.com/vakesz) on Twitter / X
 - [linkedin.com/in/gabor-pinkova](https://linkedin.com/in/gabor-pinkova)
 
 <sub><em>"Code is like humor. When you have to explain it, it's bad." — Cory House</em></sub>
